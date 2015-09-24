@@ -11,9 +11,8 @@
 * [Image on final UML for workshop 1, grade 2](Workshop 1 - Domain Modeling/UML_grade2-final.png)
 
 ## Contributors for workshop 2
-* Oskar Klintrot
-* Mikael Eriksson
-* Roy Nilsson
+* Carolina Skov Pedersen
+* Anna Aldenmark
 
 ##Workshop 2 - Design
 * -
