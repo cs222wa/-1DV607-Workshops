@@ -13,7 +13,6 @@
 ## Contributors for workshop 2
 * Carolina Skov Pedersen
 * Anna Aldenmark
-* Bengt
 
 ##Workshop 2 - Design
 * -
