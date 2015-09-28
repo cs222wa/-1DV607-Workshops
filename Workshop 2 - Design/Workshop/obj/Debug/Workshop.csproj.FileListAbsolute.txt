@@ -16,3 +16,9 @@ C:\Users\Anna\Documents\Webbprogrammering\GitHub\Workshop 2 C# - copy\Workshop\o
 C:\Users\Anna\Documents\Webbprogrammering\GitHub\Workshop 2 C# - copy\Workshop\bin\Debug\Workshop.exe
 C:\Users\Anna\Documents\Webbprogrammering\GitHub\Workshop 2 C# - copy\Workshop\bin\Debug\Workshop.pdb
 C:\Users\Anna\Documents\Webbprogrammering\GitHub\Workshop 2 C# - copy\Workshop\obj\Debug\Workshop.csprojResolveAssemblyReference.cache
+C:\Users\Anna\Documents\GitHub\1DV607-Workshops\Workshop 2 - Design\Workshop\bin\Debug\Workshop.exe.config
+C:\Users\Anna\Documents\GitHub\1DV607-Workshops\Workshop 2 - Design\Workshop\obj\Debug\Workshop.exe
+C:\Users\Anna\Documents\GitHub\1DV607-Workshops\Workshop 2 - Design\Workshop\obj\Debug\Workshop.pdb
+C:\Users\Anna\Documents\GitHub\1DV607-Workshops\Workshop 2 - Design\Workshop\bin\Debug\Workshop.exe
+C:\Users\Anna\Documents\GitHub\1DV607-Workshops\Workshop 2 - Design\Workshop\bin\Debug\Workshop.pdb
+C:\Users\Anna\Documents\GitHub\1DV607-Workshops\Workshop 2 - Design\Workshop\obj\Debug\Workshop.csprojResolveAssemblyReference.cache

@@ -8,19 +8,8 @@ namespace Workshop.view
 {
     class Console
     {
-        public void Start()
+        public void ViewMenu() 
         {
-            System.Console.WriteLine("Press any key to view menu, q to quit.");
-        }
-
-        public bool Continue()
-        {
-            return System.Console.ReadKey().KeyChar != 'q';
-        }
-       
-         public int ViewMenu()           
-        {
-            System.Console.Clear();
             System.Console.WriteLine("MENU:");
             System.Console.WriteLine("1. Register new member");
             System.Console.WriteLine("2. List all members");
@@ -30,27 +19,24 @@ namespace Workshop.view
             System.Console.WriteLine("6. Register boat");
             System.Console.WriteLine("7. Edit boat");
             System.Console.WriteLine("8. Delete boat");
-            
-            return int.Parse(System.Console.ReadLine());
+            System.Console.WriteLine("9. Exit");            
         }
 
-         public void ConfirmChange(string prompt)
+         public void ConfirmMessage(string prompt)
          {
              System.Console.WriteLine(prompt);
          }
          
-        public string RegisterName()
+        public void RegisterName()
          {
              System.Console.Clear();
              System.Console.WriteLine("REGISTER MEMBER");
              System.Console.WriteLine("Name: ");
-             return System.Console.ReadLine();
          }
 
-        public int RegisterPersonalIdentityNumber()
+        public void RegisterPersonalIdentityNumber()
         {
-            System.Console.WriteLine("Personal identity number: ");
-            return int.Parse(System.Console.ReadLine());
+            System.Console.WriteLine("Personal identity number: ");            
         }
 
         public int ChooseListType()

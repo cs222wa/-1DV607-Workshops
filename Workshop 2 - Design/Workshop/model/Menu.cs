@@ -8,36 +8,27 @@ namespace Workshop.model
 {
     class Menu
     {
-        view.Console m_view;
-
-        public Menu(view.Console a_view)
+        view.Console v;
+        public Menu()
         {
-            m_view = a_view;
+            v = new view.Console();
         }
 
-        public void ChooseFromMenu(model.Member a_member, model.Menu a_menu)
+        public void ChooseFromMenu(model.Member m)
         {
-            m_view.Start();
-            while (m_view.Continue())               //FUNKAR EJ EFTER FÖRSTA GÅNGEN
+            v.ViewMenu();
+            int value = int.Parse(Console.ReadLine());
+            switch (value)
             {
-                switch (m_view.ViewMenu())
-                {
-                    case 1: a_member.RegisterMember(a_member, m_view, a_menu);
-                        break;
-                    case 2: a_member.ListMember(m_view);
-                        break;
-                    case 3: a_member.ViewMember(m_view);
-                        break;
-                    case 4: a_member.EditMember(m_view);
-                        break;
-                    
-
-                }
+                case 1: m.RegisterMember(v);
+                    break;
+                case 2: m.ListMember(v);
+                    break;
+                case 3: m.ViewMember(v);
+                    break;
+                case 4: m.EditMember(v);
+                    break;
             }
-           
-                
-            
-            
         }
     }
 }

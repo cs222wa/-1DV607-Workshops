@@ -13,10 +13,9 @@ namespace Workshop
         {
             
             model.Member member = new model.Member();
-            view.Console console = new view.Console();
-            model.Menu menu = new model.Menu(console);            
-             
-            menu.ChooseFromMenu(member, menu);             
+            model.Menu menu = new model.Menu();
+
+            menu.ChooseFromMenu(member); 
         }
 
             

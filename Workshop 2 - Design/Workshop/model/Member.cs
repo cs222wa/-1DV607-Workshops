@@ -11,64 +11,49 @@ namespace Workshop.model
     {
         private int id;
         private string name;
-        private int personalIdentityNumber;
-        List<string> memberRegister;              
-
+        private int personalIdentityNumber;         //FIXA!
+        model.MemberRegister mr;
+        
         public Member()
         {
-            id = 0;                                 //ID SKA EJ BÖRJA OM PÅ NOLL!
+            id = 0;                                 
             name = null;
-            personalIdentityNumber = 0;            
-            memberRegister = new List<string>();
+            personalIdentityNumber = 0;
+            mr = new MemberRegister();
         }
 
-        public void RegisterMember(model.Member a_member, view.Console a_view, model.Menu a_menu)
+        public void RegisterMember(view.Console v)
         {
-                a_member.name = a_view.RegisterName();
-                a_member.personalIdentityNumber = a_view.RegisterPersonalIdentityNumber();           
-                        
-                using (StreamWriter writer = new StreamWriter("memberRegister.txt", true))
-                {
-                    a_member.id++;    
-                    writer.WriteLine(a_member.id + "\t" + a_member.name + "\t" + a_member.personalIdentityNumber);
-                    writer.Close();
-                    a_view.ConfirmChange("Member registered: " + "Id: " + a_member.id + ", Name: " + a_member.name + ", Personal identity number: " + a_member.personalIdentityNumber);
-                    
-                    a_menu.ChooseFromMenu(a_member, a_menu);
-                }
+            v.RegisterName();
+            name = System.Console.ReadLine();
+            v.RegisterPersonalIdentityNumber();
+            personalIdentityNumber = int.Parse(System.Console.ReadLine());
+
+            id = mr.GetMemberId(id);
+            mr.UpdateTextFile(id, name, personalIdentityNumber);
+            v.ConfirmMessage("Member registered: " + "Id: " + id + ", Name: " + name + ", Personal identity number: " + personalIdentityNumber);
         }
 
-        public void ListMember(view.Console a_view)
+        public void ListMember(view.Console v)
         {
-            int listType = a_view.ChooseListType();
-            using (StreamReader reader = new StreamReader("memberRegister.txt"))            //Hur visas VerboseList?
-            {                                                                               //Antal båtar läggas till i CompactList
-                string line = null;                             //Ska denna deklareras högst upp??
-                while ((line = reader.ReadLine()) != null)
-                {
-                    memberRegister.Add(line);
-                    a_view.ListAllMembers(line);
-                }                                                
-            }
-            
-        }                                                   //Fråga om quit eller ny meny
+            int listType = v.ChooseListType();
+            mr.ListMembers();
+            //string line = mr.ListMembers();
+            //v.ListAllMembers(line);                        
+        }                                                   
 
         public void EditMember(view.Console a_view)
         {
             a_view.AskForMemberToEdit();
         }
         
-        public void ViewMember(view.Console a_view)
+        public void ViewMember(view.Console v)
         {            
-                ListMember(a_view);
-                int choosenMemberId = a_view.AskForMemberToView();
-                a_view.ViewSpecifikMember(memberRegister[choosenMemberId - 1]);
-                
-            
-        }
-
-
-        
-    }
-       
+            ListMember(v);      //??
+            v.AskForMemberToView();
+            int choosenMemberId = int.Parse(Console.ReadLine());    
+            string choosenMember = mr.GetSpecifikMember(choosenMemberId);
+            v.ViewSpecifikMember(choosenMember);                           
+        }        
+    }       
 }
