@@ -22,6 +22,12 @@ namespace Workshop.view
             System.Console.WriteLine("9. Exit");            
         }
 
+        public void Continue()
+        {
+            System.Console.WriteLine("Press any key to continue.");
+            System.Console.ReadKey();
+        }
+
          public void ConfirmMessage(string prompt)
          {
              System.Console.WriteLine(prompt);

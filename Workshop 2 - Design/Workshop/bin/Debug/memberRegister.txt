@@ -1,8 +1,5 @@
 ﻿1	Bengt	5454
 2	Bosse	445
-3	Berit	544
-4	Barbro	466
-5	Olle	6565
-6	Funka!	656
-7	Benga	6548	jhjhk	655
-8	Bajs	656
+3	Berit	5444	lksjf	
+4	lskdjf	
+5	kjs	

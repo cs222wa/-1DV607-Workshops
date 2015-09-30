@@ -23,14 +23,14 @@ namespace Workshop.model
             using (reader)
             {
                 string lastLine = File.ReadLines("memberRegister.txt").Last();
-                string firstChar = lastLine.Substring(0,1);
+                string firstChar = lastLine.Substring(0,2);
                 id = int.Parse(firstChar);
                 id++;
                 return id;
             }
         }
 
-        public void UpdateTextFile(int id, string name, int personalIdentityNumber)
+        public void UpdateTextFile(int id, string name, string personalIdentityNumber)
         {
             using (StreamWriter writer = new StreamWriter("memberRegister.txt", true))
             {
