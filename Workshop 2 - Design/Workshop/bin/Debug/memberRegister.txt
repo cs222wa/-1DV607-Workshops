@@ -1,5 +1,6 @@
 ﻿1	Bengt	5454
 2	Bosse	445
-3	Berit	5444	lksjf	
-4	lskdjf	
-5	kjs	
+3	Berit	5444
+4	Bosse 	820302-3235
+5	Frans	620203-6532
+6	Benga	720202-2332

@@ -32,7 +32,12 @@ namespace Workshop.view
          {
              System.Console.WriteLine(prompt);
          }
-         
+        public void ViewErrorMessage(string prompt)         //???
+         {
+             System.Console.WriteLine(prompt);
+             System.Console.ReadKey();
+         }
+
         public void RegisterName()
          {
              System.Console.Clear();
@@ -45,12 +50,11 @@ namespace Workshop.view
             System.Console.WriteLine("Personal identity number: ");            
         }
 
-        public int ChooseListType()
+        public void ChooseListType()
         {
             System.Console.WriteLine("Choose type of list:");
             System.Console.WriteLine("1. Compact list");
-            System.Console.WriteLine("2. Verbose list");
-            return int.Parse(System.Console.ReadLine());
+            System.Console.WriteLine("2. Verbose list");            
         }
 
         public void ListAllMembers(string line)
@@ -58,10 +62,9 @@ namespace Workshop.view
             System.Console.WriteLine(line);            
         }
 
-        public int AskForMemberToView()
+        public void AskForMember(string prompt)
         {
-            System.Console.WriteLine("Choose member to view (memberID): ");
-            return int.Parse(System.Console.ReadLine());
+            System.Console.WriteLine("Choose member to " + prompt + " (memberID): ");
         }
 
         public void ViewSpecifikMember(string member)
@@ -69,9 +72,6 @@ namespace Workshop.view
             System.Console.WriteLine(member);
         }
 
-        public void AskForMemberToEdit()
-        {
-            System.Console.WriteLine("Test editmember");
-        }
+        
     }
 }

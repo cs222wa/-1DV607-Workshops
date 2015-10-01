@@ -14,7 +14,10 @@ namespace Workshop.model
         private string name;
         private string personalIdentityNumber;         
         model.MemberRegister mr;
+        view.Console v; 
+        model.Boat b;
 
+               
         public int Id
         {
             get { return id; }
@@ -39,15 +42,22 @@ namespace Workshop.model
             get { return personalIdentityNumber; }
             set
             {
-                if (String.IsNullOrWhiteSpace(value))
+                //try
+                //{
+                    if (String.IsNullOrWhiteSpace(value))
                     {
-                        throw new ArgumentNullException("Personal identity number cannot be empty.");
+                        throw new ArgumentNullException();
                     }
                     if (!Regex.IsMatch(value, @"^(\d{6}|\d{8})[-|(\s)]{0,1}\d{4}$"))
                     {
-                        throw new ArgumentOutOfRangeException();                        
+                        throw new ArgumentOutOfRangeException();
                     }
                     personalIdentityNumber = value;
+                //}
+                //catch (ArgumentException)
+                //{
+                //    v.ViewErrorMessage("Personal identity number is not valid. Press any key to try again.");                    
+                //}
             }
         }
 
@@ -57,48 +67,94 @@ namespace Workshop.model
             set { mr = value; }
         }
 
+        internal view.Console V
+        {
+            get { return v; }
+            set { v = value; }
+        }
+
+        internal model.Boat B
+        {
+            get { return b; }
+            set { b = value; }
+        }
+        
 
         public Member()
         {
             //id = 0;
             //name = null;
             //personalIdentityNumber = null;
-            mr = new MemberRegister();
+            mr = new model.MemberRegister();
+            v = new view.Console();
+            b = new model.Boat();
         }      
 
-        public void RegisterMember(view.Console v)
+        public void RegisterMember()
         {
             v.RegisterName();
             Name = System.Console.ReadLine();
             v.RegisterPersonalIdentityNumber();
             PersonalIdentityNumber = System.Console.ReadLine();
-
+            
             Id = mr.GetMemberId(id);
             mr.UpdateTextFile(id, name, personalIdentityNumber);
             v.ConfirmMessage("Member registered: " + "Id: " + id + ", Name: " + name + ", Personal identity number: " + personalIdentityNumber);
             v.Continue();
         }
 
-        public void ListMember(view.Console v)
+        public void ListMember()
         {
-            int listType = v.ChooseListType();
-            mr.ListMembers();
+            v.ChooseListType();
+            ListType(System.Console.ReadLine());
+            
+            //v.ListAllMembers();
             v.Continue();
             //FIXA!                      
-        }                                                   
-
-        public void EditMember(view.Console a_view)
-        {
-            a_view.AskForMemberToEdit();
         }
+
+        public void ListType(string type)
+        {
+            if (int.Parse(type) == 1)
+            {
+                mr.ListMembersCompact();
+            }
+            else if (int.Parse(type) == 2)
+            {
+                mr.ListMembersVerbose();
+            }
+            else
+            {
+                //FIXA NÅGOT
+            }
+            
+        }      
         
-        public void ViewMember(view.Console v)
-        {            
-            ListMember(v);      //??
-            v.AskForMemberToView();
+        public void ViewMember()
+        {
+            mr.ListMembersCompact();            //Visa lista??
+            v.AskForMember("view");
             int choosenMemberId = int.Parse(Console.ReadLine());    
             string choosenMember = mr.GetSpecifikMember(choosenMemberId);
-            v.ViewSpecifikMember(choosenMember);                           
-        }        
+            v.ViewSpecifikMember(choosenMember);
+            v.Continue(); 
+        }
+
+        public void EditMember()
+        {
+            v.AskForMember("edit");
+            int choosenMemberId = int.Parse(Console.ReadLine());
+            Console.WriteLine("edit" + choosenMemberId);                //ta bort
+            v.Continue();
+        }
+
+        public void DeleteMember()
+        {
+            v.AskForMember("delete");
+            int choosenMemberId = int.Parse(Console.ReadLine());
+            mr.DeleteMember(choosenMemberId);            
+            Console.WriteLine("delete" + choosenMemberId);                //ta bort
+            v.Continue();
+        }
     }       
 }

@@ -8,7 +8,20 @@ namespace Workshop.model
 {
     class Boat
     {
-        
+        private int length;
+
+        public int Length
+        {
+            get { return length; }
+            set { length = value; }
+        }
+        enum BoatType
+        {
+            Sailboat,
+            Motorsailor,
+            Kayak_Canoe,
+            Other
+        }
 
         public Boat()
         {

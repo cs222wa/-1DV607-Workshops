@@ -23,13 +23,15 @@ namespace Workshop.model
                 int value = int.Parse(Console.ReadLine());
                 switch (value)
                 {
-                    case 1: m.RegisterMember(v);
+                    case 1: m.RegisterMember();
                         break;
-                    case 2: m.ListMember(v);
+                    case 2: m.ListMember();
                         break;
-                    case 3: m.ViewMember(v);
+                    case 3: m.ViewMember();
                         break;
-                    case 4: m.EditMember(v);
+                    case 4: m.EditMember();
+                        break;
+                    case 5: m.DeleteMember();
                         break;
                     case 9: return;                        
                 }

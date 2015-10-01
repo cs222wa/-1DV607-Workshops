@@ -11,7 +11,7 @@ namespace Workshop.model
     {
         private List<string> memberRegister;
         private StreamReader reader;
-
+        
         public MemberRegister()
         {
             memberRegister = new List<string>();
@@ -35,27 +35,53 @@ namespace Workshop.model
             using (StreamWriter writer = new StreamWriter("memberRegister.txt", true))
             {
                 writer.WriteLine(id + "\t" + name + "\t" + personalIdentityNumber);
-                writer.Close();
+                writer.Close();                
             }
         }
 
-        public void ListMembers()
+        
+        public void ListMembersCompact()                            //name, memberID, number of boats
         {
-            using (reader)                                                                          //Hur visas VerboseList?
-            {                                                                               //Antal båtar läggas till i CompactList
+            Console.WriteLine("Test Compact");                      //ta bort
+            using (reader)                                                                          
+            {                                                        //Antal båtar läggas till i CompactList
                 string line = null;                                                         
                 while ((line = reader.ReadLine()) != null)
                 {
-                    memberRegister.Add(line);
-                    Console.WriteLine("line" + line);                                       //Skicka tillbaka alla rader                    
-                }                
-            }
+                    memberRegister.Add(line);                       //Skicka tillbaka alla rader
+                    //view.Console v = new view.Console();          //Detta funkar, men så får man ju inte göra :p Ska skickas tillbaka till Member, sen ska v.ListAllMembers(line); anropas
+                    //v.ListAllMembers(line);                       
+                }               
+            }          
+        }
+
+        public void ListMembersVerbose()                            //name, personal number, member id and boats with boat information
+        {
+            Console.WriteLine("test verbose");                      //ta bort
         }
 
         public string GetSpecifikMember(int choosenMemberId)
         {
             string choosenMember = memberRegister[choosenMemberId - 1];
             return choosenMember;
+        }
+
+        public void DeleteMember(int id)
+        {
+            string choosenMember = memberRegister[0];                           //funkar ej
+            using (reader)
+            {                                                                               
+                string line = null;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    memberRegister.Add(line);
+                    if (line == choosenMember)                                  //??
+                    {
+                        Console.WriteLine("ta bort: " + line);
+                    }
+                }
+            }
+            
         }
     }
 }
