@@ -11,7 +11,7 @@ namespace Workshop.model
     {
         private List<string> memberRegister;
         private StreamReader reader;
-        
+               
         public MemberRegister()
         {
             memberRegister = new List<string>();
@@ -50,7 +50,7 @@ namespace Workshop.model
                 {
                     memberRegister.Add(line);                       //Skicka tillbaka alla rader
                     //view.Console v = new view.Console();          //Detta funkar, men så får man ju inte göra :p Ska skickas tillbaka till Member, sen ska v.ListAllMembers(line); anropas
-                    //v.ListAllMembers(line);                       
+                    //v.ListAllMembers(line);                          
                 }               
             }          
         }
@@ -66,9 +66,14 @@ namespace Workshop.model
             return choosenMember;
         }
 
-        public void DeleteMember(int id)
+        public string HandleMember(string id)
         {
-            string choosenMember = memberRegister[0];                           //funkar ej
+            int choosenMemberId = int.Parse(id);
+            return GetSpecifikMember(choosenMemberId);
+        }
+
+        public void DeleteMember(string choosenMember)
+        {
             using (reader)
             {                                                                               
                 string line = null;

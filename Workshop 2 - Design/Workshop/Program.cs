@@ -13,9 +13,10 @@ namespace Workshop
         {
             
             model.Member member = new model.Member();
+            model.Boat boat = new model.Boat();
             model.Menu menu = new model.Menu();
-
-            menu.ChooseFromMenu(member); 
+            
+            menu.ChooseFromMenu(member, boat); 
         }
 
             

@@ -14,7 +14,7 @@ namespace Workshop.model
             v = new view.Console();
         }
 
-        public void ChooseFromMenu(model.Member m)
+        public void ChooseFromMenu(model.Member m, model.Boat b)
         {            
             while (true)
             {
@@ -32,6 +32,8 @@ namespace Workshop.model
                     case 4: m.EditMember();
                         break;
                     case 5: m.DeleteMember();
+                        break;
+                    case 6: b.RegisterBoat();
                         break;
                     case 9: return;                        
                 }

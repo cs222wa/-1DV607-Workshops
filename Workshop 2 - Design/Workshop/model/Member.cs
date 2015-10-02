@@ -16,7 +16,6 @@ namespace Workshop.model
         model.MemberRegister mr;
         view.Console v; 
         model.Boat b;
-
                
         public int Id
         {
@@ -59,32 +58,10 @@ namespace Workshop.model
                 //    v.ViewErrorMessage("Personal identity number is not valid. Press any key to try again.");                    
                 //}
             }
-        }
-
-        internal model.MemberRegister Mr
-        {
-            get { return mr; }
-            set { mr = value; }
-        }
-
-        internal view.Console V
-        {
-            get { return v; }
-            set { v = value; }
-        }
-
-        internal model.Boat B
-        {
-            get { return b; }
-            set { b = value; }
-        }
-        
+        }        
 
         public Member()
         {
-            //id = 0;
-            //name = null;
-            //personalIdentityNumber = null;
             mr = new model.MemberRegister();
             v = new view.Console();
             b = new model.Boat();
@@ -132,29 +109,40 @@ namespace Workshop.model
         
         public void ViewMember()
         {
-            mr.ListMembersCompact();            //Visa lista??
+            mr.ListMembersCompact();            
             v.AskForMember("view");
-            int choosenMemberId = int.Parse(Console.ReadLine());    
-            string choosenMember = mr.GetSpecifikMember(choosenMemberId);
+            string choosenMember = mr.HandleMember(Console.ReadLine());
             v.ViewSpecifikMember(choosenMember);
             v.Continue(); 
         }
 
         public void EditMember()
         {
+            mr.ListMembersCompact();
             v.AskForMember("edit");
-            int choosenMemberId = int.Parse(Console.ReadLine());
-            Console.WriteLine("edit" + choosenMemberId);                //ta bort
+            string choosenMember = mr.HandleMember(Console.ReadLine());
+            Console.WriteLine("edit" + choosenMember);                //ta bort
             v.Continue();
         }
 
         public void DeleteMember()
         {
+            mr.ListMembersCompact();
             v.AskForMember("delete");
-            int choosenMemberId = int.Parse(Console.ReadLine());
-            mr.DeleteMember(choosenMemberId);            
-            Console.WriteLine("delete" + choosenMemberId);                //ta bort
-            v.Continue();
+            string choosenMember = mr.HandleMember(Console.ReadLine());
+                        
+            v.ConfirmMessage("Do you want to delete this member? (y/n) " + choosenMember);
+            if (Console.ReadLine() == "y")
+            {
+                Console.WriteLine("delete");
+                //mr.DeleteMember(choosenMember);
+                v.Continue();
+            }
+            else 
+            {
+                v.Continue();
+            }
+            
         }
     }       
 }
