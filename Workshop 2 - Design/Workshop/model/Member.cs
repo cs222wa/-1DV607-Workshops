@@ -80,7 +80,17 @@ namespace Workshop.model
             b = new model.Boat();
         }      
 
+        public string GetName()
+        {
+            return Name;
+        }
        
+        public string GetPersonalIdentityNumber()
+        {
+            return PersonalIdentityNumber;
+        }
+
+
         //public void RegisterMember()
         //{
         //    v.RegisterName();

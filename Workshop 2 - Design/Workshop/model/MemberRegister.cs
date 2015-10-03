@@ -8,15 +8,12 @@ namespace Workshop.model
 {
     class MemberRegister
     {
-      // private List<string> memberRegister;
        model.RegisterEditor re;
         
                
         public MemberRegister()
         {
-            //memberRegister = new List<string>();
-            re = new model.RegisterEditor();
-            
+            re = new model.RegisterEditor();            
         }
 
         public void RegisterMember(string name, string personalIdentityNumber)
@@ -25,59 +22,24 @@ namespace Workshop.model
             model.Member newMember = new model.Member(id, name, personalIdentityNumber);           
             re.UpdateTextFile(newMember);
         }
+             
 
-       
-
-        //public int GetMemberId(int id)       
-        //{
-        //    using (reader)
-        //    {
-        //        string lastLine = File.ReadLines("memberRegister.txt").Last();
-        //        string firstChar = lastLine.Substring(0,2);
-        //        id = int.Parse(firstChar);
-        //        id++;
-        //        return id;
-        //    }
-        //}
-
-        //public void UpdateTextFile(int id, string name, string personalIdentityNumber)
-        //{
-        //    using (StreamWriter writer = new StreamWriter("memberRegister.txt", true))
-        //    {
-        //        writer.WriteLine(id + "\t" + name + "\t" + personalIdentityNumber);
-        //        writer.Close();                
-        //    }
-        //}
-
-        public List<Member> ListMembersCompact()
+        public List<Member> ListMembers()
         {
-            Console.WriteLine("test compact");
             List<Member> memberRegister = re.ListMembers();            
             return memberRegister;           
         }
-       
-        //public void ListMembersCompact()                            //name, memberID, number of boats
-        //{
-        //    Console.WriteLine("Test Compact");                      //ta bort
-        //    using (reader)                                                                          
-        //    {                                                        //Antal båtar läggas till i CompactList
-        //        string line = null;                                                         
-        //        while ((line = reader.ReadLine()) != null)
-        //        {
-        //            memberRegister.Add(line);                       //Skicka tillbaka alla rader
-        //            //view.Console v = new view.Console();          //Detta funkar, men så får man ju inte göra :p Ska skickas tillbaka till Member, sen ska v.ListAllMembers(line); anropas
-        //            //v.ListAllMembers(line);                          
-        //        }               
-        //    }          
-        //}
 
-       
 
-        //public string GetSpecifikMember(int choosenMemberId)
-        //{
-        //    string choosenMember = memberRegister[choosenMemberId - 1];
-        //    return choosenMember;
-        //}
+
+        public List<Member> GetSpecifikMember(int choosenMemberId)
+        {
+            List<model.Member> memberRegister = re.ListMembers();
+            return memberRegister;
+            
+            //string choosenMember = memberRegister[choosenMemberId - 1];
+            //return choosenMember;
+        }
 
         //public string HandleMember(string id)
         //{

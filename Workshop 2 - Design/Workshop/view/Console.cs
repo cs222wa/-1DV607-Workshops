@@ -20,7 +20,7 @@ namespace Workshop.view
             System.Console.WriteLine("MENU:");
             System.Console.WriteLine("1. Register new member");
             System.Console.WriteLine("2. List all members");
-            System.Console.WriteLine("3. View specifik member");
+            System.Console.WriteLine("3. View specific member");
             System.Console.WriteLine("4. Edit member");
             System.Console.WriteLine("5. Delete member");
             System.Console.WriteLine("6. Register boat");
@@ -89,16 +89,21 @@ namespace Workshop.view
             }
         }
 
-       
-        //public void AskForMember(string prompt)
-        //{
-        //    System.Console.WriteLine("Choose member to " + prompt + " (memberID): ");
-        //}
 
-        //public void ViewSpecifikMember(string member)
-        //{
-        //    System.Console.WriteLine(member);
-        //}
+        public void AskForMember(string prompt)
+        {
+            System.Console.WriteLine("Choose member to " + prompt + " (memberID): ");
+        }
+
+        public void ViewSpecificMember(model.Member member)
+        {
+            System.Console.WriteLine("VIEW MEMBER");
+            System.Console.WriteLine("-------------------------");
+            System.Console.WriteLine(member.Id);
+            System.Console.WriteLine(member.Name);
+            System.Console.WriteLine(member.PersonalIdentityNumber);
+            System.Console.WriteLine("-------------------------");
+        }
 
         
     }

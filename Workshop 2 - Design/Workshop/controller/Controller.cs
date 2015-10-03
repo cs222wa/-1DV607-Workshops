@@ -10,12 +10,13 @@ namespace Workshop.controller
     {
         view.Console v;
         model.MemberRegister mr;
+        model.Member m;
        
         public Controller()
         {
             v = new view.Console();
             mr = new model.MemberRegister();
-           
+            m = new model.Member();
         }
 
         public void ChooseFromMenu()
@@ -31,8 +32,8 @@ namespace Workshop.controller
                         break;
                     case 2: ListMembers();
                         break;
-                    //case 3: m.ViewMember();
-                    //    break;
+                    case 3: ViewMember();
+                        break;
                     //case 4: m.EditMember();
                     //    break;
                     //case 5: m.DeleteMember();
@@ -63,6 +64,21 @@ namespace Workshop.controller
             int listType = int.Parse(Console.ReadLine());
             List<model.Member> memberRegister = mr.ListMembers();
             v.ListMembers(memberRegister, listType);           
+            v.Continue();
+        }
+
+        public void ViewMember()
+        {
+            v.AskForMember("view");
+            int choosenMemberId = int.Parse(Console.ReadLine());
+            List<model.Member> memberRegister = mr.GetSpecifikMember(choosenMemberId);
+            foreach (var member in memberRegister)
+            {
+                if (member.Id == choosenMemberId)
+                {
+                    v.ViewSpecificMember(member);
+                }
+            }
             v.Continue();
         }
     }
