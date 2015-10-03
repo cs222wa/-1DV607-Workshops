@@ -30,38 +30,30 @@ namespace Workshop.model
             return memberRegister;           
         }
 
-
-
-        public List<Member> GetSpecifikMember(int choosenMemberId)
+       public void DeleteMember(int choosenMemberId, List<Member> memberRegister)
         {
-            List<model.Member> memberRegister = re.ListMembers();
-            return memberRegister;
-            
-            //string choosenMember = memberRegister[choosenMemberId - 1];
-            //return choosenMember;
-        }
+            re.ClearTextFile();
+            foreach (var member in memberRegister)
+            {
+                if (member.Id == choosenMemberId)
+                {
+                    model.Member memberToRemove = new model.Member();
+                    re.DeleteMember(memberToRemove);
+                }
+                else
+                {                    
+                    re.UpdateTextFile(member);
+                }                
+            }            
+       }
 
-        //public string HandleMember(string id)
-        //{
-        //    int choosenMemberId = int.Parse(id);
-        //    return GetSpecifikMember(choosenMemberId);
-        //}
+       // public List<Member> UpdateList()
+       //{
+       //    List<model.Member> memberRegister = re.ListMembers();
+       //    return memberRegister;
+       //}   
 
-        //public void DeleteMember(string choosenMember)
-        //{
-        //    using (reader)
-        //    {                                                                               
-        //        string line = null;
-        //        while ((line = reader.ReadLine()) != null)
-        //        {
-        //            memberRegister.Add(line);
-        //            if (line == choosenMember)                                  //??
-        //            {
-        //                Console.WriteLine("ta bort: " + line);
-        //            }
-        //        }
-        //    }
-            
-        //}
+
+        
     }
 }

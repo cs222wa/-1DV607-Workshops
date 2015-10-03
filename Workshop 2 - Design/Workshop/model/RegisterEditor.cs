@@ -28,6 +28,14 @@ namespace Workshop.model
             }
         }
 
+        public void ClearTextFile()
+        {
+            using (var stream = new FileStream("memberRegister.txt", FileMode.Truncate))
+            {
+
+            }
+        }
+        
         public int GetLastMemberId()
         {
             using (StreamReader reader = new StreamReader("memberRegister.txt"))
@@ -52,6 +60,11 @@ namespace Workshop.model
                 reader.Close();
             }
             return memberRegister;
+        }
+
+        public void DeleteMember(model.Member memberToRemove)
+        {
+            memberRegister.Remove(memberToRemove);
         }
     }
 }

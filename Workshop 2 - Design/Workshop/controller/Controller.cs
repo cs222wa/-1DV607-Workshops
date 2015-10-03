@@ -11,12 +11,20 @@ namespace Workshop.controller
         view.Console v;
         model.MemberRegister mr;
         model.Member m;
+        List<model.Member> memberRegister;
        
         public Controller()
         {
             v = new view.Console();
             mr = new model.MemberRegister();
             m = new model.Member();
+            
+        }
+
+        public void Start()
+        {
+            memberRegister = mr.ListMembers();
+            ChooseFromMenu();
         }
 
         public void ChooseFromMenu()
@@ -34,10 +42,10 @@ namespace Workshop.controller
                         break;
                     case 3: ViewMember();
                         break;
-                    //case 4: m.EditMember();
-                    //    break;
-                    //case 5: m.DeleteMember();
-                    //    break;
+                    case 4: EditMember();           //ej klar
+                        break;
+                    case 5: DeleteMember();
+                        break;
                     //case 6: b.RegisterBoat();
                     //    break;
                     case 9: return;                        
@@ -62,24 +70,53 @@ namespace Workshop.controller
         {
             v.ChooseListType();
             int listType = int.Parse(Console.ReadLine());
-            List<model.Member> memberRegister = mr.ListMembers();
             v.ListMembers(memberRegister, listType);           
             v.Continue();
         }
 
         public void ViewMember()
+        {            
+            int choosenMemberId = v.AskForMember("view");
+            HandleMember(choosenMemberId);
+            v.Continue();
+        }
+
+        public void EditMember()
         {
-            v.AskForMember("view");
-            int choosenMemberId = int.Parse(Console.ReadLine());
-            List<model.Member> memberRegister = mr.GetSpecifikMember(choosenMemberId);
-            foreach (var member in memberRegister)
+            int choosenMemberId = v.AskForMember("edit");
+            HandleMember(choosenMemberId);
+            v.EditMember();
+            v.Continue();
+        }
+
+        public void DeleteMember()
+        {
+            int choosenMemberId = v.AskForMember("delete");
+            HandleMember(choosenMemberId);
+            v.DeleteMember();
+            string input = Console.ReadLine();
+            if (input == "y")
+            {
+                mr.DeleteMember(choosenMemberId, memberRegister);
+            }
+            else
+            {
+                v.Continue();
+            }
+            v.ConfirmMessage("Member deleted.");
+            v.Continue();
+        }
+
+        public void HandleMember(int choosenMemberId)
+        {
+            
+            foreach (var member in memberRegister)                                      //Denna borde nog vara i MemberRegister.cs ???  Men hur??
             {
                 if (member.Id == choosenMemberId)
                 {
                     v.ViewSpecificMember(member);
-                }
+                }               
             }
-            v.Continue();
         }
     }
 }

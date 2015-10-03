@@ -39,12 +39,12 @@ namespace Workshop.view
          {
              System.Console.WriteLine(prompt);
          }
-        
-        //public void ViewErrorMessage(string prompt)         //???
-        // {
-        //     System.Console.WriteLine(prompt);
-        //     System.Console.ReadKey();
-        // }
+
+         public void ViewErrorMessage(string prompt)         
+         {
+             System.Console.WriteLine(prompt);
+             System.Console.ReadKey();
+         }
 
         public void RegisterName()
          {
@@ -90,9 +90,10 @@ namespace Workshop.view
         }
 
 
-        public void AskForMember(string prompt)
+        public int AskForMember(string prompt)
         {
             System.Console.WriteLine("Choose member to " + prompt + " (memberID): ");
+            return int.Parse(System.Console.ReadLine());
         }
 
         public void ViewSpecificMember(model.Member member)
@@ -105,6 +106,15 @@ namespace Workshop.view
             System.Console.WriteLine("-------------------------");
         }
 
+        public void EditMember()
+        {
+            System.Console.WriteLine("test Edit");
+        }
+
+        public void DeleteMember()
+        {
+            System.Console.WriteLine("Are you sure you want to delete member? (y/n)");
+        }
         
     }
 }
