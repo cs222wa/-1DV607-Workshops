@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.IO;
 using System.Text.RegularExpressions;
 
 namespace Workshop.model
@@ -60,89 +59,104 @@ namespace Workshop.model
             }
         }        
 
-        public Member()
+        //public Member()
+        //{
+        //    id = 0;
+        //    name = null;
+        //    personalIdentityNumber = null;
+        //}
+
+        public Member()                 //??
         {
+
+        }
+        public Member(int id, string name, string personalIdentityNumber)
+        {
+            Id = id;
+            Name = name;
+            PersonalIdentityNumber = personalIdentityNumber;
             mr = new model.MemberRegister();
             v = new view.Console();
             b = new model.Boat();
         }      
 
-        public void RegisterMember()
-        {
-            v.RegisterName();
-            Name = System.Console.ReadLine();
-            v.RegisterPersonalIdentityNumber();
-            PersonalIdentityNumber = System.Console.ReadLine();
+       
+        //public void RegisterMember()
+        //{
+        //    v.RegisterName();
+        //    Name = System.Console.ReadLine();
+        //    v.RegisterPersonalIdentityNumber();
+        //    PersonalIdentityNumber = System.Console.ReadLine();
             
-            Id = mr.GetMemberId(id);
-            mr.UpdateTextFile(id, name, personalIdentityNumber);
-            v.ConfirmMessage("Member registered: " + "Id: " + id + ", Name: " + name + ", Personal identity number: " + personalIdentityNumber);
-            v.Continue();
-        }
+        //    Id = mr.GetMemberId(id);
+        //    mr.UpdateTextFile(id, name, personalIdentityNumber);
+        //    v.ConfirmMessage("Member registered: " + "Id: " + id + ", Name: " + name + ", Personal identity number: " + personalIdentityNumber);
+        //    v.Continue();
+        //}
 
-        public void ListMember()
-        {
-            v.ChooseListType();
-            ListType(System.Console.ReadLine());
+        //public void ListMember()
+        //{
+        //    v.ChooseListType();
+        //    ListType(System.Console.ReadLine());
             
-            //v.ListAllMembers();
-            v.Continue();
-            //FIXA!                      
-        }
+        //    //v.ListAllMembers();
+        //    v.Continue();
+        //    //FIXA!                      
+        //}
 
-        public void ListType(string type)
-        {
-            if (int.Parse(type) == 1)
-            {
-                mr.ListMembersCompact();
-            }
-            else if (int.Parse(type) == 2)
-            {
-                mr.ListMembersVerbose();
-            }
-            else
-            {
-                //FIXA NÅGOT
-            }
+        //public void ListType(string type)
+        //{
+        //    if (int.Parse(type) == 1)
+        //    {
+        //        mr.ListMembersCompact();
+        //    }
+        //    else if (int.Parse(type) == 2)
+        //    {
+        //        mr.ListMembersVerbose();
+        //    }
+        //    else
+        //    {
+        //        //FIXA NÅGOT
+        //    }
             
-        }      
+        //}      
         
-        public void ViewMember()
-        {
-            mr.ListMembersCompact();            
-            v.AskForMember("view");
-            string choosenMember = mr.HandleMember(Console.ReadLine());
-            v.ViewSpecifikMember(choosenMember);
-            v.Continue(); 
-        }
+        //public void ViewMember()
+        //{
+        //    mr.ListMembersCompact();            
+        //    v.AskForMember("view");
+        //    string choosenMember = mr.HandleMember(Console.ReadLine());
+        //    v.ViewSpecifikMember(choosenMember);
+        //    v.Continue(); 
+        //}
 
-        public void EditMember()
-        {
-            mr.ListMembersCompact();
-            v.AskForMember("edit");
-            string choosenMember = mr.HandleMember(Console.ReadLine());
-            Console.WriteLine("edit" + choosenMember);                //ta bort
-            v.Continue();
-        }
+        //public void EditMember()
+        //{
+        //    mr.ListMembersCompact();
+        //    v.AskForMember("edit");
+        //    string choosenMember = mr.HandleMember(Console.ReadLine());
+        //    Console.WriteLine("edit" + choosenMember);                //ta bort
+        //    v.Continue();
+        //}
 
-        public void DeleteMember()
-        {
-            mr.ListMembersCompact();
-            v.AskForMember("delete");
-            string choosenMember = mr.HandleMember(Console.ReadLine());
+        //public void DeleteMember()
+        //{
+        //    mr.ListMembersCompact();
+        //    v.AskForMember("delete");
+        //    string choosenMember = mr.HandleMember(Console.ReadLine());
                         
-            v.ConfirmMessage("Do you want to delete this member? (y/n) " + choosenMember);
-            if (Console.ReadLine() == "y")
-            {
-                Console.WriteLine("delete");
-                //mr.DeleteMember(choosenMember);
-                v.Continue();
-            }
-            else 
-            {
-                v.Continue();
-            }
+        //    v.ConfirmMessage("Do you want to delete this member? (y/n) " + choosenMember);
+        //    if (Console.ReadLine() == "y")
+        //    {
+        //        Console.WriteLine("delete");
+        //        //mr.DeleteMember(choosenMember);
+        //        v.Continue();
+        //    }
+        //    else 
+        //    {
+        //        v.Continue();
+        //    }
             
-        }
+        //}
     }       
 }

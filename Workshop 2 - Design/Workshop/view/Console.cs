@@ -8,6 +8,13 @@ namespace Workshop.view
 {
     class Console
     {
+        private model.Member m;
+
+        public Console()
+        {
+            m = new model.Member();
+        }
+
         public void ViewMenu() 
         {
             System.Console.WriteLine("MENU:");
@@ -32,11 +39,12 @@ namespace Workshop.view
          {
              System.Console.WriteLine(prompt);
          }
-        public void ViewErrorMessage(string prompt)         //???
-         {
-             System.Console.WriteLine(prompt);
-             System.Console.ReadKey();
-         }
+        
+        //public void ViewErrorMessage(string prompt)         //???
+        // {
+        //     System.Console.WriteLine(prompt);
+        //     System.Console.ReadKey();
+        // }
 
         public void RegisterName()
          {
@@ -54,23 +62,43 @@ namespace Workshop.view
         {
             System.Console.WriteLine("Choose type of list:");
             System.Console.WriteLine("1. Compact list");
-            System.Console.WriteLine("2. Verbose list");            
+            System.Console.WriteLine("2. Verbose list");
         }
 
-        public void ListAllMembers(string line)
+
+
+        public void ListMembers(List<model.Member> memberRegister, int listType)            
         {
-            System.Console.WriteLine(line);            
+            if (listType == 1)
+            {
+                foreach (var member in memberRegister)
+                {
+                    System.Console.WriteLine(member.Id + "\t" + member.Name);
+                }
+            }
+            else if (listType == 2)
+                {
+                foreach (var member in memberRegister)
+                {
+                    System.Console.WriteLine(member.Id + "\t" + member.Name);
+                }
+            }
+            else
+            {
+                //fixa något
+            }
         }
 
-        public void AskForMember(string prompt)
-        {
-            System.Console.WriteLine("Choose member to " + prompt + " (memberID): ");
-        }
+       
+        //public void AskForMember(string prompt)
+        //{
+        //    System.Console.WriteLine("Choose member to " + prompt + " (memberID): ");
+        //}
 
-        public void ViewSpecifikMember(string member)
-        {
-            System.Console.WriteLine(member);
-        }
+        //public void ViewSpecifikMember(string member)
+        //{
+        //    System.Console.WriteLine(member);
+        //}
 
         
     }

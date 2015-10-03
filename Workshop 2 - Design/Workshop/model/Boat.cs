@@ -8,11 +8,11 @@ namespace Workshop.model
 {
     class Boat
     {
-        private int length;
+        private double length;
         model.MemberRegister mr;
         view.Console v;
         
-        public int Length
+        public double Length
         {
             get { return length; }
             set { length = value; }
@@ -31,13 +31,13 @@ namespace Workshop.model
             v = new view.Console();
         }
 
-        public void RegisterBoat()
-        {
-            mr.ListMembersCompact();
-            v.AskForMember("register boat for ");
-            string choosenMember = mr.HandleMember(Console.ReadLine());
-            Console.WriteLine("Boat registered");
-            v.Continue();
-        }
+        //public void RegisterBoat()
+        //{
+        //    mr.ListMembersCompact();
+        //    v.AskForMember("register boat for ");
+        //    string choosenMember = mr.HandleMember(Console.ReadLine());
+        //    Console.WriteLine("Boat registered");
+        //    v.Continue();
+        //}
     }
 }

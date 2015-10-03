@@ -43,8 +43,9 @@
   <ItemGroup>
     <Compile Include="model\Boat.cs" />
     <Compile Include="model\Member.cs" />
+    <Compile Include="model\RegisterEditor.cs" />
     <Compile Include="model\MemberRegister.cs" />
-    <Compile Include="model\Menu.cs" />
+    <Compile Include="controller\Controller.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="view\Console.cs" />
