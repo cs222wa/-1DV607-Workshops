@@ -10,20 +10,25 @@ namespace Workshop.model
     {
         private int memberId;
         private float length;
-        private BoatType type;
-        
+        private string boatType;
+        //private BoatType type;
+        public string BoatType
+        {
+            get { return boatType; }
+            set { boatType = value; }
+        }               
         public float Length
         {
             get { return length; }
             set { length = value; }
         }
-        enum BoatType
-        {
-            Sailboat,
-            Motorsailor,
-            Kayak_Canoe,
-            Other
-        }
+        //enum BoatType
+        //{
+        //    Sailboat,
+        //    Motorsailor,
+        //    Kayak_Canoe,
+        //    Other
+        //}
 
        // public Boat(int memberId, double length, BoatType type)
         public Boat(int memberId, double length, string boatType)

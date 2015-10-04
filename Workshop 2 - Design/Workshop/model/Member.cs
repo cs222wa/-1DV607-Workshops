@@ -12,7 +12,13 @@ namespace Workshop.model
         private int id;       
         private string name;
         private string personalIdentityNumber;
-        List<Boat> boatRegister;
+        List<Boat> boatRegister = new List<Boat>();
+
+        internal List<Boat> BoatRegister
+        {
+          get { return boatRegister; }
+          set { boatRegister = value; }
+        }
         //model.MemberRegister mr;
         //view.Console v; 
         //model.Boat b;
@@ -71,7 +77,7 @@ namespace Workshop.model
             Id = id;
             Name = name;
             PersonalIdentityNumber = personalIdentityNumber;
-            boatRegister = new List<Boat>();
+            //boatRegister = new List<Boat>();
             //mr = new model.MemberRegister();
             //v = new view.Console();
             //b = new model.Boat();
@@ -79,11 +85,9 @@ namespace Workshop.model
 
         public void RegisterBoat(int memberId, double length, string boatType)
         {
-            Console.WriteLine(memberId);
-            Console.WriteLine(length);
-            Console.WriteLine(boatType);
             model.Boat newBoat = new model.Boat(memberId, length, boatType);
             boatRegister.Add(newBoat);
+            
         }
     }       
 }

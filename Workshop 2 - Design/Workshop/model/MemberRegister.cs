@@ -9,11 +9,13 @@ namespace Workshop.model
     class MemberRegister
     {
        model.RegisterEditor re;
+       model.Member m;
         
                
         public MemberRegister()
         {
-            re = new model.RegisterEditor();            
+            re = new model.RegisterEditor();
+            m = new model.Member();
         }
 
         public void RegisterMember(string name, string personalIdentityNumber)
@@ -45,6 +47,12 @@ namespace Workshop.model
                     re.UpdateTextFile(member);
                 }                
             }            
+       }
+
+       public void RegisterBoat(int memberId, double length, string boatType)
+       {
+           m.RegisterBoat(memberId, length, boatType);
+           re.UpdateTextFile(m);
        }
 
        // public List<Member> UpdateList()

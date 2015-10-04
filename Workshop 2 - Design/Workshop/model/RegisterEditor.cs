@@ -23,6 +23,15 @@ namespace Workshop.model
                 writer.WriteLine("--------------------");
                 writer.WriteLine(member.Name);
                 writer.WriteLine(member.PersonalIdentityNumber);
+                writer.WriteLine(member.BoatRegister.Count());
+                if (member.BoatRegister.Count() > 0)
+                {
+                    foreach (model.Boat boat in member.BoatRegister)
+                    {
+                        writer.WriteLine(boat.BoatType);
+                        writer.WriteLine(boat.Length);
+                    }
+                }
                 writer.WriteLine(member.Id);
                 writer.Close();
             }
