@@ -23,7 +23,7 @@ namespace Workshop.model
                 writer.WriteLine("--------------------");
                 writer.WriteLine(member.Name);
                 writer.WriteLine(member.PersonalIdentityNumber);
-                writer.WriteLine(member.Id);                
+                writer.WriteLine(member.Id);
                 writer.Close();
             }
         }

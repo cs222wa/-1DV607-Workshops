@@ -11,6 +11,7 @@ namespace Workshop.controller
         view.Console v;
         model.MemberRegister mr;
         model.Member m;
+        controller.BoatController bc;
         List<model.Member> memberRegister;
        
         public Controller()
@@ -18,7 +19,7 @@ namespace Workshop.controller
             v = new view.Console();
             mr = new model.MemberRegister();
             m = new model.Member();
-            
+            bc = new controller.BoatController();
         }
 
         public void Start()
@@ -45,10 +46,16 @@ namespace Workshop.controller
                     case 4: EditMember();           //ej klar
                         break;
                     case 5: DeleteMember();
+                        break;                    
+                    case 6: bc.RegisterBoat();
                         break;
-                    //case 6: b.RegisterBoat();
-                    //    break;
-                    case 9: return;                        
+                    case 7: bc.EditBoat();
+                        break;
+                    case 8: bc.DeleteBoat();
+                        break;
+                    case 9: return;
+                    default:
+                        break;
                 }
             }
         }
@@ -92,6 +99,12 @@ namespace Workshop.controller
         public void DeleteMember()
         {
             int choosenMemberId = v.AskForMember("delete");
+            if ((mr.CheckIfMemberExists(choosenMemberId, memberRegister)) == false)
+            {
+                v.ViewErrorMessage("The member doesn't exist");
+                v.Continue();
+                return;
+            }
             HandleMember(choosenMemberId);
             v.DeleteMember();
             string input = Console.ReadLine();
@@ -100,8 +113,8 @@ namespace Workshop.controller
                 mr.DeleteMember(choosenMemberId, memberRegister);
             }
             else
-            {
-                v.Continue();
+            {                
+                return;
             }
             v.ConfirmMessage("Member deleted.");
             v.Continue();
@@ -110,7 +123,7 @@ namespace Workshop.controller
         public void HandleMember(int choosenMemberId)
         {
             
-            foreach (var member in memberRegister)                                      //Denna borde nog vara i MemberRegister.cs ???  Men hur??
+            foreach (var member in memberRegister)                                      
             {
                 if (member.Id == choosenMemberId)
                 {

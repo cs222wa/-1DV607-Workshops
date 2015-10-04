@@ -51,7 +51,19 @@ namespace Workshop.model
        //{
        //    List<model.Member> memberRegister = re.ListMembers();
        //    return memberRegister;
-       //}   
+       //}
+   
+        public bool CheckIfMemberExists(int choosenMemberId, List<Member> memberRegister)
+       {
+           foreach (var member in memberRegister)
+           {
+               if (choosenMemberId == member.Id)
+               {
+                   return true;
+               }
+           }
+           return false;
+       }
 
 
         

@@ -11,10 +11,11 @@ namespace Workshop.model
     {
         private int id;       
         private string name;
-        private string personalIdentityNumber;         
-        model.MemberRegister mr;
-        view.Console v; 
-        model.Boat b;
+        private string personalIdentityNumber;
+        List<Boat> boatRegister;
+        //model.MemberRegister mr;
+        //view.Console v; 
+        //model.Boat b;
                
         public int Id
         {
@@ -70,11 +71,19 @@ namespace Workshop.model
             Id = id;
             Name = name;
             PersonalIdentityNumber = personalIdentityNumber;
-            mr = new model.MemberRegister();
-            v = new view.Console();
-            b = new model.Boat();
-        }      
+            boatRegister = new List<Boat>();
+            //mr = new model.MemberRegister();
+            //v = new view.Console();
+            //b = new model.Boat();
+        }
 
-        
+        public void RegisterBoat(int memberId, double length, string boatType)
+        {
+            Console.WriteLine(memberId);
+            Console.WriteLine(length);
+            Console.WriteLine(boatType);
+            model.Boat newBoat = new model.Boat(memberId, length, boatType);
+            boatRegister.Add(newBoat);
+        }
     }       
 }

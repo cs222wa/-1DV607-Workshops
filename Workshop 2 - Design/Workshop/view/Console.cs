@@ -43,7 +43,8 @@ namespace Workshop.view
          public void ViewErrorMessage(string prompt)         
          {
              System.Console.WriteLine(prompt);
-             System.Console.ReadKey();
+             //System.Console.WriteLine("Press any key to continue.");
+             //System.Console.ReadKey();
          }
 
         public void RegisterName()
