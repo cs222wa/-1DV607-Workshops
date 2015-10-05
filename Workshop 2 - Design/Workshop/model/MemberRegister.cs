@@ -80,17 +80,13 @@ namespace Workshop.model
                if (memberId == member.Id)
                {
                    member.BoatRegister = m.RegisterBoat(memberId, length, boatType);
-                   re.UpdateTextFile();
+                   break;
                }
-           }           
+           }
+           re.UpdateTextFile();
        }
 
-       // public List<Member> UpdateList()
-       //{
-       //    List<model.Member> memberRegister = re.ListMembers();
-       //    return memberRegister;
-       //}
-   
+       
         public bool CheckIfMemberExists(int choosenMemberId, List<Member> memberRegister)
        {
            foreach (var member in memberRegister)
