@@ -21,5 +21,25 @@ namespace Workshop.view
             System.Console.WriteLine("3. Kayak/canoe");
             System.Console.WriteLine("4. Other");
         }
+
+        public void IfEditBoatLength()
+        {
+            System.Console.WriteLine("Change boat length? y/n");
+        }
+
+        public void EditBoatLength()
+        {
+            System.Console.WriteLine("New boat length: ");
+        }
+
+        public void IfEditBoatType()
+        {
+            System.Console.WriteLine("Change boattype? y/n");
+        }
+
+        public void EditBoatType()
+        {
+            System.Console.WriteLine("New boattype: ");
+        }
     }
 }

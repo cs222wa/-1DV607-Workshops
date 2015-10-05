@@ -31,7 +31,7 @@ namespace Workshop.model
         //}
 
        // public Boat(int memberId, float length, BoatType type)
-        public Boat(int memberId, float length, string boatType)
+        public Boat(float length, string boatType)
         {
             Length = length;
             BoatType = boatType;

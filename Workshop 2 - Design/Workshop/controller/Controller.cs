@@ -51,7 +51,7 @@ namespace Workshop.controller
                         break;                    
                     case 6: bc.RegisterBoat(memberRegister);
                         break;
-                    case 7: bc.EditBoat();
+                    case 7: bc.EditBoat(memberRegister);
                         break;
                     case 8: bc.DeleteBoat();
                         break;

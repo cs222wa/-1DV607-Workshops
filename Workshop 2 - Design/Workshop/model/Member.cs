@@ -78,10 +78,9 @@ namespace Workshop.model
         }
 
        
-        public List<Boat> RegisterBoat(int memberId, float length, string boatType)
-            //public void RegisterBoat()
+        public List<Boat> RegisterBoat(float length, string boatType)
         {
-            model.Boat newBoat = new model.Boat(memberId, length, boatType);
+            model.Boat newBoat = new model.Boat(length, boatType);
             BoatRegister.Add(newBoat);
             return BoatRegister;
         }

@@ -73,19 +73,44 @@ namespace Workshop.model
             }
             re.UpdateTextFile();
         }
-       public void RegisterBoat(List<model.Member> memberRegister, int memberId, float length, string boatType)
+       public void RegisterBoat(int memberId, float length, string boatType, List<model.Member> memberRegister)
        {
            foreach (var member in memberRegister)
            {
-               if (memberId == member.Id)
+               if (member.Id == memberId)
                {
-                   member.BoatRegister = m.RegisterBoat(memberId, length, boatType);
+                   member.BoatRegister = m.RegisterBoat(length, boatType);
                    break;
                }
            }
            re.UpdateTextFile();
        }
 
+        public void EditBoatLength(int choosenMemberId)
+       {
+           foreach (var member in memberRegister)
+           {
+               if (member.Id == choosenMemberId)
+               {
+                   //fixa
+                   break;
+               }
+           }
+           re.UpdateTextFile();
+       }
+
+        public void EditBoatType(int choosenMemberId)
+        {
+            foreach (var member in memberRegister)
+            {
+                if (member.Id == choosenMemberId)
+                {
+                    //fixa
+                    break;
+                }
+            }
+            re.UpdateTextFile();
+        }
        
         public bool CheckIfMemberExists(int choosenMemberId, List<Member> memberRegister)
        {

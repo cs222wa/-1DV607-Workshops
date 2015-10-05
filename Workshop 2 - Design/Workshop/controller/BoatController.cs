@@ -52,13 +52,56 @@ namespace Workshop.controller
                     break;
             }
 
-            mr.RegisterBoat(memberRegister, choosenMemberId, length, boatType);
+            mr.RegisterBoat(choosenMemberId, length, boatType, memberRegister);
             v.Continue();
         }
 
-        public void EditBoat()
+        public void EditBoat(List<model.Member> memberRegister)
         {
+            int choosenMemberId = v.AskForMember("edit boat for");
+            if ((mr.CheckIfMemberExists(choosenMemberId, memberRegister)) == false)
+            {
+                v.ViewErrorMessage("The member doesn't exist");
+                v.Continue();
+                return;
+            }
+            //HandleMembers();
+            EditBoatLength(choosenMemberId);
+            EditBoatType(choosenMemberId);
+        }
 
+        public void EditBoatLength(int choosenMemberId)
+        {
+            bv.IfEditBoatLength();
+            string inputLength = Console.ReadLine();
+            if (inputLength == "y")
+            {
+                bv.EditBoatLength();
+                double length = double.Parse(Console.ReadLine());
+                mr.EditBoatLength(choosenMemberId);
+                v.ConfirmMessage("Boat length changed.");
+            }
+            else
+            {
+                return;
+            }
+        }
+
+         public void EditBoatType(int choosenMemberId)
+        {
+            bv.IfEditBoatType();
+            string inputType = Console.ReadLine();
+            if (inputType == "y")
+            {
+                bv.EditBoatType();
+                double length = double.Parse(Console.ReadLine());
+                mr.EditBoatType(choosenMemberId);
+                v.ConfirmMessage("Boattype changed.");
+            }
+            else
+            {
+                return;
+            }
         }
 
         public void DeleteBoat()
