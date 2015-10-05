@@ -16,27 +16,27 @@ namespace Workshop.model
             memberRegister = new List<Member>();
         }
 
-        public void SaveTextFile(model.Member member)
-        {
-            using (StreamWriter writer = new StreamWriter ("memberRegister.txt", true))      
-            {
-                    writer.WriteLine("--------------------");
+        //public void SaveTextFile(model.Member member)
+        //{
+        //    using (StreamWriter writer = new StreamWriter ("memberRegister.txt", true))      
+        //    {
+        //            writer.WriteLine("--------------------");
 
-                    writer.WriteLine(member.Name);
-                    writer.WriteLine(member.PersonalIdentityNumber);
-                    writer.WriteLine(member.BoatRegister.Count());
-                    if (member.BoatRegister.Count() > 0)
-                    {
-                        foreach (model.Boat boat in member.BoatRegister)
-                        {
-                            writer.WriteLine(boat.BoatType);
-                            writer.WriteLine(boat.Length);
-                        }
-                    }
-                    writer.WriteLine(member.Id);
-                writer.Close();
-            }
-        }
+        //            writer.WriteLine(member.Name);
+        //            writer.WriteLine(member.PersonalIdentityNumber);
+        //            writer.WriteLine(member.BoatRegister.Count());
+        //            if (member.BoatRegister.Count() > 0)
+        //            {
+        //                foreach (model.Boat boat in member.BoatRegister)
+        //                {
+        //                    writer.WriteLine(boat.BoatType);
+        //                    writer.WriteLine(boat.Length);
+        //                }
+        //            }
+        //            writer.WriteLine(member.Id);
+        //        writer.Close();
+        //    }
+        //}
 
         public void UpdateTextFile()
         {
@@ -63,13 +63,13 @@ namespace Workshop.model
             }
         }
 
-        public void ClearTextFile()
-        {
-            using (var stream = new FileStream("memberRegister.txt", FileMode.Truncate))
-            {
+        //public void ClearTextFile()
+        //{
+        //    using (var stream = new FileStream("memberRegister.txt", FileMode.Truncate))
+        //    {
 
-            }
-        }
+        //    }
+        //}
         
         public int GetLastMemberId()
         {            
@@ -113,6 +113,11 @@ namespace Workshop.model
         public void DeleteMember(model.Member memberToRemove)
         {
             memberRegister.Remove(memberToRemove);
+        }
+
+        public void AddMember(model.Member memberToAdd)
+        {
+            memberRegister.Add(memberToAdd);
         }
     }
 }

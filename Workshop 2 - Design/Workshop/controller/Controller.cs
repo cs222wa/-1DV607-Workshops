@@ -86,13 +86,25 @@ namespace Workshop.controller
         public void ViewMember()
         {            
             int choosenMemberId = v.AskForMember("view");
+            if ((mr.CheckIfMemberExists(choosenMemberId, memberRegister)) == false)
+            {
+                v.ViewErrorMessage("The member doesn't exist");
+                v.Continue();
+                return;
+            }
             HandleMember(choosenMemberId);
             v.Continue();
         }
 
         public void EditMember()
         {
-            int choosenMemberId = v.AskForMember("edit");
+            int choosenMemberId = v.AskForMember("edit");               
+            if ((mr.CheckIfMemberExists(choosenMemberId, memberRegister)) == false)
+            {
+                v.ViewErrorMessage("The member doesn't exist");
+                v.Continue();
+                return;
+            }
             HandleMember(choosenMemberId);
             EditMemberName(choosenMemberId);
             EditMemberPN(choosenMemberId);
