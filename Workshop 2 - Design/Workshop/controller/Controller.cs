@@ -94,7 +94,43 @@ namespace Workshop.controller
         {
             int choosenMemberId = v.AskForMember("edit");
             HandleMember(choosenMemberId);
-            v.EditMember();
+            EditMemberName(choosenMemberId);
+            EditMemberPN(choosenMemberId);
+        }
+
+        public void EditMemberName(int choosenMemberId)
+        {            
+            v.IfEditName();
+            string inputName = Console.ReadLine();
+            if (inputName == "y")
+            {
+                v.EditName();
+                string name = Console.ReadLine();
+                mr.EditMemberName(choosenMemberId, name, memberRegister);
+                v.ConfirmMessage("Membername changed.");
+            }
+            else
+            {
+                return;
+            }
+            
+        }
+
+        public void EditMemberPN(int choosenMemberId)
+        {
+            v.IfEditPN();
+            string inputPN = Console.ReadLine();
+            if (inputPN == "y")
+            {
+                v.EditPN();
+                string pn = Console.ReadLine();
+                mr.EditMemberPN(choosenMemberId, pn, memberRegister);
+                v.ConfirmMessage("Personal identity number changed.");
+            }
+            else
+            {
+                return;
+            }
             v.Continue();
         }
 
@@ -130,6 +166,7 @@ namespace Workshop.controller
                 {
                     v.ViewSpecificMember(member);
                 }               
+                
             }
         }
     }

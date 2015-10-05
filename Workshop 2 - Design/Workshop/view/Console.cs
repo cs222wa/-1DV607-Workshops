@@ -122,9 +122,24 @@ namespace Workshop.view
             System.Console.WriteLine("-------------------------");
         }
 
-        public void EditMember()
+        public void IfEditName()
         {
-            System.Console.WriteLine("test Edit");
+            System.Console.WriteLine("Change name? (y/n)");
+        }
+
+        public void EditName()
+        {
+            System.Console.WriteLine("Name: ");
+        }
+
+        public void IfEditPN()
+        {
+            System.Console.WriteLine("Change personal identity number? (y/n)");
+        }
+
+        public void EditPN()
+        {
+            System.Console.WriteLine("Personal identity number: ");
         }
 
         public void DeleteMember()

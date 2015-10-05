@@ -10,8 +10,7 @@ namespace Workshop.model
     {
        model.RegisterEditor re;
        model.Member m;
-       List<model.Member> memberRegister;           
-        
+       List<model.Member> memberRegister;                   
                
         public MemberRegister()
         {
@@ -24,7 +23,7 @@ namespace Workshop.model
         {
             int id = (re.GetLastMemberId()) + 1;
             model.Member newMember = new model.Member(id, name, personalIdentityNumber);           
-            re.UpdateTextFile(newMember);
+            re.SaveTextFile(newMember);
         }
 
         public List<Member> ListMembers(model.Member member)
@@ -35,21 +34,43 @@ namespace Workshop.model
 
        public void DeleteMember(int choosenMemberId, List<Member> memberRegister)
         {
-            re.ClearTextFile();
+           // re.ClearTextFile();
             foreach (var member in memberRegister)
             {
                 if (member.Id == choosenMemberId)
                 {
-                    model.Member memberToRemove = new model.Member();
-                    re.DeleteMember(memberToRemove);
+                    re.DeleteMember(member);
+                    break;
                 }
-                else
-                {                    
-                    re.UpdateTextFile(member);
-                }                
-            }            
+             }
+            re.UpdateTextFile();
        }
 
+        public void EditMemberName(int choosenMemberId, string name, List<Member> memberRegister)
+       {
+           foreach (var member in memberRegister)
+           {
+               if (member.Id == choosenMemberId)
+               {
+                   member.Name = name;
+                   break;
+               }
+           }
+           re.UpdateTextFile();
+       }
+
+        public void EditMemberPN(int choosenMemberId, string pn, List<Member> memberRegister)
+        {
+            foreach (var member in memberRegister)
+            {
+                if (member.Id == choosenMemberId)
+                {
+                    member.PersonalIdentityNumber = pn;
+                    break;
+                }
+            }
+            re.UpdateTextFile();
+        }
        public void RegisterBoat(List<model.Member> memberRegister, int memberId, float length, string boatType)
        {
            m.RegisterBoat(memberId, length, boatType);
@@ -57,10 +78,9 @@ namespace Workshop.model
            {
                if (memberId == member.Id)
                {
-                    re.UpdateTextFile(member);
+                   //re.UpdateTextFile(member);
                }
-           }
-           
+           }           
        }
 
        // public List<Member> UpdateList()

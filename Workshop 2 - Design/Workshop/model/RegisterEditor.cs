@@ -16,11 +16,33 @@ namespace Workshop.model
             memberRegister = new List<Member>();
         }
 
-        public void UpdateTextFile(model.Member member)
+        public void SaveTextFile(model.Member member)
         {
             using (StreamWriter writer = new StreamWriter ("memberRegister.txt", true))      
             {
-                foreach (var _member in memberRegister)
+                    writer.WriteLine("--------------------");
+
+                    writer.WriteLine(member.Name);
+                    writer.WriteLine(member.PersonalIdentityNumber);
+                    writer.WriteLine(member.BoatRegister.Count());
+                    if (member.BoatRegister.Count() > 0)
+                    {
+                        foreach (model.Boat boat in member.BoatRegister)
+                        {
+                            writer.WriteLine(boat.BoatType);
+                            writer.WriteLine(boat.Length);
+                        }
+                    }
+                    writer.WriteLine(member.Id);
+                writer.Close();
+            }
+        }
+
+        public void UpdateTextFile()
+        {
+            using (StreamWriter writer = new StreamWriter("memberRegister.txt", false))
+            {
+                foreach (var member in memberRegister)
                 {
                     writer.WriteLine("--------------------");
 
@@ -36,7 +58,7 @@ namespace Workshop.model
                         }
                     }
                     writer.WriteLine(member.Id);
-                }                
+                    }                
                 writer.Close();
             }
         }
@@ -50,8 +72,7 @@ namespace Workshop.model
         }
         
         public int GetLastMemberId()
-        {
-            
+        {            
             using (StreamReader reader = new StreamReader("memberRegister.txt"))
             {
                 if (new FileInfo("memberRegister.txt").Length == 0)
