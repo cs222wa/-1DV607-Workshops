@@ -27,6 +27,12 @@ namespace Workshop.controller
         public void RegisterBoat(List<model.Member> memberRegister)
         {
             int choosenMemberId = v.AskForMember("register boat for");
+            if ((mr.CheckIfMemberExists(choosenMemberId, memberRegister)) == false)
+            {
+                v.ViewErrorMessage("The member doesn't exist");
+                v.Continue();
+                return;
+            }
             bv.RegisterBoatLength();
             float length = float.Parse(Console.ReadLine());
             bv.RegisterBoatType();

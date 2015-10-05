@@ -21,8 +21,9 @@ namespace Workshop.model
         
         public void RegisterMember(string name, string personalIdentityNumber)
         {
+            List<Boat> boatList = new List<Boat>();             //flytta
             int id = (re.GetLastMemberId()) + 1;
-            model.Member newMember = new model.Member(id, name, personalIdentityNumber);
+            model.Member newMember = new model.Member(id, name, personalIdentityNumber, boatList);
             re.AddMember(newMember);
             re.UpdateTextFile();
             //re.SaveTextFile(newMember);
@@ -74,12 +75,12 @@ namespace Workshop.model
         }
        public void RegisterBoat(List<model.Member> memberRegister, int memberId, float length, string boatType)
        {
-           m.RegisterBoat(memberId, length, boatType);
            foreach (var member in memberRegister)
            {
                if (memberId == member.Id)
                {
-                   //re.UpdateTextFile(member);
+                   member.BoatRegister = m.RegisterBoat(memberId, length, boatType);
+                   re.UpdateTextFile();
                }
            }           
        }

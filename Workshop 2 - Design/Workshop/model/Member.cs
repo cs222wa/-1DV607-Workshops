@@ -69,7 +69,8 @@ namespace Workshop.model
         {
 
         }
-        public Member(int id, string name, string personalIdentityNumber)
+        public Member(int id, string name, string personalIdentityNumber, List<Boat> boatList)
+            //public Member(int id, string name, string personalIdentityNumber)
         {
             Id = id;
             Name = name;
@@ -77,10 +78,11 @@ namespace Workshop.model
         }
 
        
-        public void RegisterBoat(int memberId, float length, string boatType)
+        public List<Boat> RegisterBoat(int memberId, float length, string boatType)
         {
             model.Boat newBoat = new model.Boat(memberId, length, boatType);
-            boatRegister.Add(newBoat);
+            BoatRegister.Add(newBoat);
+            return BoatRegister;
         }
     }       
 }

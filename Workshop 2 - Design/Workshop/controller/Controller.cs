@@ -45,7 +45,7 @@ namespace Workshop.controller
                         break;
                     case 3: ViewMember();
                         break;
-                    case 4: EditMember();           //ej klar
+                    case 4: EditMember();           
                         break;
                     case 5: DeleteMember();
                         break;                    

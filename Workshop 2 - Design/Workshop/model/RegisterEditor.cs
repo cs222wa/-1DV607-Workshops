@@ -86,6 +86,7 @@ namespace Workshop.model
 
         public List<Member> ListMembers(model.Member member)
         {
+            List<Boat> boatList = new List<Boat>();
             using (StreamReader reader = new StreamReader("memberregister.txt"))
             {
                 while (!reader.EndOfStream)
@@ -103,7 +104,7 @@ namespace Workshop.model
                         }
                     }
                     int id = int.Parse(reader.ReadLine());
-                    memberRegister.Add(new Member(id, name, personalIdentityNumber));
+                    memberRegister.Add(new Member(id, name, personalIdentityNumber, boatList));
                 }
                 reader.Close();
             }
