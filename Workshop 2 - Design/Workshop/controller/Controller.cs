@@ -123,8 +123,7 @@ namespace Workshop.controller
         }
 
         public void HandleMember(int choosenMemberId)
-        {
-            
+        {            
             foreach (var member in memberRegister)                                      
             {
                 if (member.Id == choosenMemberId)

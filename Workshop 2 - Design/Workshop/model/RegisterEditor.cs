@@ -20,7 +20,7 @@ namespace Workshop.model
         {
             using (StreamWriter writer = new StreamWriter ("memberRegister.txt", true))      
             {
-                foreach (var m  in memberRegister)
+                foreach (var _member in memberRegister)
                 {
                     writer.WriteLine("--------------------");
 
@@ -72,14 +72,15 @@ namespace Workshop.model
                     string line = reader.ReadLine();
                     string name = reader.ReadLine();
                     string personalIdentityNumber = reader.ReadLine();
-                    //if (member.BoatRegister.Count() > 0)
-                    //{
-                    //    foreach (model.Boat boat in member.BoatRegister)
-                    //    {
-                    //        string boatType = reader.ReadLine();
-                    //        string length = reader.ReadLine();
-                    //    }
-                    //}
+                    int numberOfBoats = int.Parse(reader.ReadLine());
+                    if (member.BoatRegister.Count() > 0)
+                    {
+                        foreach (model.Boat boat in member.BoatRegister)
+                        {
+                            string boatType = reader.ReadLine();
+                            string length = reader.ReadLine();
+                        }
+                    }
                     int id = int.Parse(reader.ReadLine());
                     memberRegister.Add(new Member(id, name, personalIdentityNumber));
                 }
