@@ -87,15 +87,16 @@ namespace Workshop.view
                     System.Console.WriteLine("Member id: " + member.Id);
                     System.Console.WriteLine("Name: " + member.Name);
                     System.Console.WriteLine("Personal identity number: " + member.PersonalIdentityNumber);
-                    System.Console.WriteLine("Number of boats: " + boatRegister.Count);
+                    System.Console.WriteLine("Number of boats: " + member.BoatRegister.Count);
                     System.Console.WriteLine("------------------------");
-                }
-                if (boatRegister.Count > 0)
-                {
-                    foreach (var boat in boatRegister)
+                    // }
+                    if (member.BoatRegister.Count > 0)
                     {
-                        System.Console.WriteLine("Boats length: " + boat.Length);
-                        System.Console.WriteLine("Boattype: " + boat.BoatType);
+                        foreach (var boat in member.BoatRegister)
+                        {
+                            System.Console.WriteLine("Boats length: " + boat.Length);
+                            System.Console.WriteLine("Boattype: " + boat.BoatType);
+                        }
                     }
                 }
             }

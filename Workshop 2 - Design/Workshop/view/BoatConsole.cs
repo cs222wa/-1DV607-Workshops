@@ -24,7 +24,7 @@ namespace Workshop.view
 
         public void IfEditBoatLength()
         {
-            System.Console.WriteLine("Change boat length? y/n");
+            System.Console.WriteLine("Change boat length? (y/n)");
         }
 
         public void EditBoatLength()
@@ -34,12 +34,17 @@ namespace Workshop.view
 
         public void IfEditBoatType()
         {
-            System.Console.WriteLine("Change boattype? y/n");
+            System.Console.WriteLine("Change boattype? (y/n)");
         }
 
         public void EditBoatType()
         {
             System.Console.WriteLine("New boattype: ");
+        }
+
+        public void DeleteBoat()
+        {
+            System.Console.WriteLine("Are you sure you want to delete boat? (y/n)");
         }
     }
 }

@@ -53,7 +53,7 @@ namespace Workshop.controller
                         break;
                     case 7: bc.EditBoat(memberRegister);
                         break;
-                    case 8: bc.DeleteBoat();
+                    case 8: bc.DeleteBoat(memberRegister);
                         break;
                     case 9: return;
                     default:

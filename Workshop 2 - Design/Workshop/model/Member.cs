@@ -84,5 +84,7 @@ namespace Workshop.model
             BoatRegister.Add(newBoat);
             return BoatRegister;
         }
+
+        
     }       
 }

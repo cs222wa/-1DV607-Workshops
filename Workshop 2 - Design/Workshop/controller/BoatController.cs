@@ -104,9 +104,29 @@ namespace Workshop.controller
             }
         }
 
-        public void DeleteBoat()
+         public void DeleteBoat(List<model.Member> memberRegister)
         {
-
+            int choosenMemberId = v.AskForMember("delete boat");
+            if ((mr.CheckIfMemberExists(choosenMemberId, memberRegister)) == false)
+            {
+                v.ViewErrorMessage("The member doesn't exist");
+                v.Continue();
+                return;
+            }
+            
+            //HandleMember(choosenMemberId);
+            bv.DeleteBoat();
+            string input = Console.ReadLine();
+            if (input == "y")
+            {
+                //mr.DeleteBoat(choosenMemberId, memberRegister);
+            }
+            else
+            {
+                return;
+            }
+            v.ConfirmMessage("Boat deleted.");
+            v.Continue();
         }
     }
 }

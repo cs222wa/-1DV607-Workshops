@@ -111,6 +111,20 @@ namespace Workshop.model
             }
             re.UpdateTextFile();
         }
+
+        //public void DeleteBoat(int choosenMemberId, List<Member> memberRegister)
+        //{
+            
+        //    foreach (var member in memberRegister)
+        //    {
+        //        if (member.Id == choosenMemberId)
+        //        {
+        //            //re.DeleteMember(member);
+        //            break;
+        //        }
+        //    }
+        //    re.UpdateTextFile();
+        //}
        
         public bool CheckIfMemberExists(int choosenMemberId, List<Member> memberRegister)
        {

@@ -10,10 +10,12 @@ namespace Workshop.model
     class RegisterEditor
     {
         private List<Member> memberRegister;
+        private List<Boat> boatRegister;
   
         public RegisterEditor()
         {
             memberRegister = new List<Member>();
+            boatRegister = new List<Boat>();
         }
 
         //public void SaveTextFile(model.Member member)
@@ -91,18 +93,34 @@ namespace Workshop.model
             {
                 while (!reader.EndOfStream)
                 {
+
                     string line = reader.ReadLine();
                     string name = reader.ReadLine();
                     string personalIdentityNumber = reader.ReadLine();
                     int numberOfBoats = int.Parse(reader.ReadLine());
-                    if (member.BoatRegister.Count() > 0)
+                    for (int i = 0; i < numberOfBoats; i++)
                     {
-                        foreach (model.Boat boat in member.BoatRegister)
-                        {
-                            string boatType = reader.ReadLine();
-                            string length = reader.ReadLine();
-                        }
+                        string boatType = reader.ReadLine();
+                        float length = float.Parse(reader.ReadLine());
+                        boatRegister.Add(new Boat(length, boatType));
                     }
+                    
+                    //int id = int.Parse(reader.ReadLine());
+                    //Member newMember = new Member(id, name, personalIdentityNumber, boatRegister);
+                    foreach (var boat in boatRegister)
+                    {
+                        member.RegisterBoat(boat.Length, boat.BoatType);
+                    }
+                    //memberRegister.Add(member);
+
+                    //if (member.BoatRegister.Count() > 0)
+                    //{
+                    //    foreach (model.Boat boat in member.BoatRegister)
+                    //    {
+                    //        string boatType = reader.ReadLine();
+                    //        string length = reader.ReadLine();
+                    //    }
+                   // }
                     int id = int.Parse(reader.ReadLine());
                     memberRegister.Add(new Member(id, name, personalIdentityNumber, boatList));
                 }
