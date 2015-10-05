@@ -30,19 +30,10 @@ namespace Workshop.model
         //    Other
         //}
 
-       // public Boat(int memberId, double length, BoatType type)
-        public Boat(int memberId, double length, string boatType)
+       // public Boat(int memberId, float length, BoatType type)
+        public Boat(int memberId, float length, string boatType)
         {
 
         }
-
-        //public Boat()
-        //{
-        //    memberId = 0;
-        //    length = 0;
-        //    type = Other; 
-        //}
-
-        
     }
 }

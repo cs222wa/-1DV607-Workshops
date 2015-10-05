@@ -19,20 +19,24 @@ namespace Workshop.model
         public void UpdateTextFile(model.Member member)
         {
             using (StreamWriter writer = new StreamWriter ("memberRegister.txt", true))      
-            {                
-                writer.WriteLine("--------------------");
-                writer.WriteLine(member.Name);
-                writer.WriteLine(member.PersonalIdentityNumber);
-                writer.WriteLine(member.BoatRegister.Count());
-                if (member.BoatRegister.Count() > 0)
+            {
+                foreach (var m  in memberRegister)
                 {
-                    foreach (model.Boat boat in member.BoatRegister)
+                    writer.WriteLine("--------------------");
+
+                    writer.WriteLine(member.Name);
+                    writer.WriteLine(member.PersonalIdentityNumber);
+                    writer.WriteLine(member.BoatRegister.Count());
+                    if (member.BoatRegister.Count() > 0)
                     {
-                        writer.WriteLine(boat.BoatType);
-                        writer.WriteLine(boat.Length);
+                        foreach (model.Boat boat in member.BoatRegister)
+                        {
+                            writer.WriteLine(boat.BoatType);
+                            writer.WriteLine(boat.Length);
+                        }
                     }
-                }
-                writer.WriteLine(member.Id);
+                    writer.WriteLine(member.Id);
+                }                
                 writer.Close();
             }
         }
@@ -47,14 +51,19 @@ namespace Workshop.model
         
         public int GetLastMemberId()
         {
+            
             using (StreamReader reader = new StreamReader("memberRegister.txt"))
             {
+                if (new FileInfo("memberRegister.txt").Length == 0)
+                {
+                    return 0;
+                }
                 string lastLine = File.ReadLines("memberRegister.txt").Last();                
                 return int.Parse(lastLine);
             }
         }
-                
-        public List<Member> ListMembers()
+
+        public List<Member> ListMembers(model.Member member)
         {
             using (StreamReader reader = new StreamReader("memberregister.txt"))
             {
@@ -63,8 +72,16 @@ namespace Workshop.model
                     string line = reader.ReadLine();
                     string name = reader.ReadLine();
                     string personalIdentityNumber = reader.ReadLine();
-                    int id = int.Parse(reader.ReadLine());                   
-                    memberRegister.Add(new Member(id, name, personalIdentityNumber));                    
+                    //if (member.BoatRegister.Count() > 0)
+                    //{
+                    //    foreach (model.Boat boat in member.BoatRegister)
+                    //    {
+                    //        string boatType = reader.ReadLine();
+                    //        string length = reader.ReadLine();
+                    //    }
+                    //}
+                    int id = int.Parse(reader.ReadLine());
+                    memberRegister.Add(new Member(id, name, personalIdentityNumber));
                 }
                 reader.Close();
             }

@@ -10,26 +10,27 @@ namespace Workshop.model
     {
        model.RegisterEditor re;
        model.Member m;
+       List<model.Member> memberRegister;           
         
                
         public MemberRegister()
         {
             re = new model.RegisterEditor();
             m = new model.Member();
+            memberRegister = new List<model.Member>();
         }
-
+        
         public void RegisterMember(string name, string personalIdentityNumber)
         {
             int id = (re.GetLastMemberId()) + 1;
             model.Member newMember = new model.Member(id, name, personalIdentityNumber);           
             re.UpdateTextFile(newMember);
         }
-             
 
-        public List<Member> ListMembers()
+        public List<Member> ListMembers(model.Member member)
         {
-            List<Member> memberRegister = re.ListMembers();            
-            return memberRegister;           
+            List<Member> memberRegister = re.ListMembers(member);
+            return memberRegister;
         }
 
        public void DeleteMember(int choosenMemberId, List<Member> memberRegister)
@@ -49,10 +50,17 @@ namespace Workshop.model
             }            
        }
 
-       public void RegisterBoat(int memberId, double length, string boatType)
+       public void RegisterBoat(List<model.Member> memberRegister, int memberId, float length, string boatType)
        {
            m.RegisterBoat(memberId, length, boatType);
-           re.UpdateTextFile(m);
+           foreach (var member in memberRegister)
+           {
+               if (memberId == member.Id)
+               {
+                    re.UpdateTextFile(member);
+               }
+           }
+           
        }
 
        // public List<Member> UpdateList()
@@ -72,8 +80,5 @@ namespace Workshop.model
            }
            return false;
        }
-
-
-        
     }
 }

@@ -19,10 +19,7 @@ namespace Workshop.model
           get { return boatRegister; }
           set { boatRegister = value; }
         }
-        //model.MemberRegister mr;
-        //view.Console v; 
-        //model.Boat b;
-               
+        
         public int Id
         {
             get { return id; }
@@ -77,17 +74,14 @@ namespace Workshop.model
             Id = id;
             Name = name;
             PersonalIdentityNumber = personalIdentityNumber;
-            //boatRegister = new List<Boat>();
-            //mr = new model.MemberRegister();
-            //v = new view.Console();
-            //b = new model.Boat();
         }
 
-        public void RegisterBoat(int memberId, double length, string boatType)
+       
+
+        public void RegisterBoat(int memberId, float length, string boatType)
         {
             model.Boat newBoat = new model.Boat(memberId, length, boatType);
             boatRegister.Add(newBoat);
-            
         }
     }       
 }

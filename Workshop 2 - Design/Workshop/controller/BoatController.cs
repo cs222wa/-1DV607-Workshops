@@ -10,8 +10,8 @@ namespace Workshop.controller
     {
         view.Console v;
         view.BoatConsole bv;
-        //model.Member m;
         model.MemberRegister mr;
+       
         string boatType;
         float length;
 
@@ -19,18 +19,16 @@ namespace Workshop.controller
         {
             v = new view.Console();
             bv = new view.BoatConsole();
-            //m = new model.Member();
             mr = new model.MemberRegister();
             boatType = null;
             length = 0;
         }
-
         
-        public void RegisterBoat()
+        public void RegisterBoat(List<model.Member> memberRegister)
         {
             int choosenMemberId = v.AskForMember("register boat for");
             bv.RegisterBoatLength();
-            double length = double.Parse(Console.ReadLine());
+            float length = float.Parse(Console.ReadLine());
             bv.RegisterBoatType();
             
             int value = int.Parse(Console.ReadLine());
@@ -48,7 +46,7 @@ namespace Workshop.controller
                     break;
             }
 
-            mr.RegisterBoat(choosenMemberId, length, boatType);
+            mr.RegisterBoat(memberRegister, choosenMemberId, length, boatType);
             v.Continue();
         }
 

@@ -15,7 +15,7 @@ namespace Workshop.view
             m = new model.Member();
         }
 
-        public void ViewMenu() 
+        public void ViewMenu()
         {
             System.Console.WriteLine("MENU:");
             System.Console.WriteLine("1. Register new member");
@@ -26,7 +26,7 @@ namespace Workshop.view
             System.Console.WriteLine("6. Register boat");
             System.Console.WriteLine("7. Edit boat");
             System.Console.WriteLine("8. Delete boat");
-            System.Console.WriteLine("9. Exit");            
+            System.Console.WriteLine("9. Exit");
         }
 
         public void Continue()
@@ -35,28 +35,26 @@ namespace Workshop.view
             System.Console.ReadKey();
         }
 
-         public void ConfirmMessage(string prompt)
-         {
-             System.Console.WriteLine(prompt);
-         }
+        public void ConfirmMessage(string prompt)
+        {
+            System.Console.WriteLine(prompt);
+        }
 
-         public void ViewErrorMessage(string prompt)         
-         {
-             System.Console.WriteLine(prompt);
-             //System.Console.WriteLine("Press any key to continue.");
-             //System.Console.ReadKey();
-         }
+        public void ViewErrorMessage(string prompt)
+        {
+            System.Console.WriteLine(prompt);
+        }
 
         public void RegisterName()
-         {
-             System.Console.Clear();
-             System.Console.WriteLine("REGISTER MEMBER");
-             System.Console.WriteLine("Name: ");
-         }
+        {
+            System.Console.Clear();
+            System.Console.WriteLine("REGISTER MEMBER");
+            System.Console.WriteLine("Name: ");
+        }
 
         public void RegisterPersonalIdentityNumber()
         {
-            System.Console.WriteLine("Personal identity number: ");            
+            System.Console.WriteLine("Personal identity number: ");
         }
 
         public void ChooseListType()
@@ -66,22 +64,39 @@ namespace Workshop.view
             System.Console.WriteLine("2. Verbose list");
         }
 
-
-
-        public void ListMembers(List<model.Member> memberRegister, int listType)            
+        public void ListMembers(List<model.Member> memberRegister, List<model.Boat> boatRegister, int listType)
         {
             if (listType == 1)
             {
+                System.Console.WriteLine("COMPACT LIST");
+                System.Console.WriteLine("------------------------");
                 foreach (var member in memberRegister)
                 {
-                    System.Console.WriteLine(member.Id + "\t" + member.Name);
+                    System.Console.WriteLine("Member id: " + member.Id);
+                    System.Console.WriteLine("Name: " + member.Name);
+                    System.Console.WriteLine("Number of boats: " + boatRegister.Count);
+                    System.Console.WriteLine("------------------------");
                 }
             }
             else if (listType == 2)
-                {
+            {
+                System.Console.WriteLine("VERBOSE LIST");
+                System.Console.WriteLine("------------------------");
                 foreach (var member in memberRegister)
                 {
-                    System.Console.WriteLine(member.Id + "\t" + member.Name);
+                    System.Console.WriteLine("Member id: " + member.Id);
+                    System.Console.WriteLine("Name: " + member.Name);
+                    System.Console.WriteLine("Personal identity number: " + member.PersonalIdentityNumber);
+                    System.Console.WriteLine("Number of boats: " + boatRegister.Count);
+                    System.Console.WriteLine("------------------------");
+                }
+                if (boatRegister.Count > 0)
+                {
+                    foreach (var boat in boatRegister)
+                    {
+                        System.Console.WriteLine("Boats length: " + boat.Length);
+                        System.Console.WriteLine("Boattype: " + boat.BoatType);
+                    }
                 }
             }
             else
@@ -116,6 +131,5 @@ namespace Workshop.view
         {
             System.Console.WriteLine("Are you sure you want to delete member? (y/n)");
         }
-        
     }
 }
