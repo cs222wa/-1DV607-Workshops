@@ -10,31 +10,8 @@ namespace Workshop.view
     {
         public void RegisterBoatLength()
         {
-
-        }
-        public void RegisterBoatType()
-        {
-
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-        /*
-        public void RegisterBoatLength()
-        {
             System.Console.WriteLine("Boat's length: ");
         }
-
         public void RegisterBoatType()
         {
             System.Console.WriteLine("Choose boattype: ");
@@ -43,7 +20,6 @@ namespace Workshop.view
             System.Console.WriteLine("3. Kayak/canoe");
             System.Console.WriteLine("4. Other");
         }
-
         public void IfEditBoatLength()
         {
             System.Console.WriteLine("Change boat length? (y/n)");
@@ -68,7 +44,5 @@ namespace Workshop.view
         {
             System.Console.WriteLine("Are you sure you want to delete boat? (y/n)");
         }
-         * 
-         * */
     }
 }
