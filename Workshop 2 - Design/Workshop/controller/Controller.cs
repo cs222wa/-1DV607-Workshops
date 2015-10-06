@@ -8,22 +8,20 @@ namespace Workshop.controller
 {
     class Controller
     {
-        view.Console v; //general console
+        view.Console v; 
         model.MemberEditor me;
-        model.Member m;
         controller.BoatController bc;
         controller.MemberController mc;
         List<model.Member> memberRegister;
-        List<model.Boat> boatRegister;
+ 
 
         public Controller()
         {
             v = new view.Console();
             me = new model.MemberEditor();
-            m = new model.Member();
             bc = new controller.BoatController();
             mc = new controller.MemberController();
-            boatRegister = new List<model.Boat>();
+ 
         }
 
         public void Start()
@@ -51,11 +49,11 @@ namespace Workshop.controller
                         break;
                     case 5: mc.DeleteMember();
                         break;
-                    case 6: bc.RegisterBoat(memberRegister);
+                    case 6: bc.RegisterBoat();
                         break;
-                    case 7: bc.EditBoat(memberRegister);
+                    case 7: bc.EditBoat();
                         break;
-                    case 8: bc.DeleteBoat(memberRegister);
+                    case 8: bc.DeleteBoat();
                         break;
                     case 9: return;
                     default:

@@ -20,6 +20,7 @@ namespace Workshop.model
             }
             UpdateTextFile();
         }
+
         public void EditBoatLength(int choosenMemberId)
         {
             foreach (var member in memberRegister)
@@ -32,6 +33,7 @@ namespace Workshop.model
             }
             UpdateTextFile();
         }
+
         public void EditBoatType(int choosenMemberId)
         {
             foreach (var member in memberRegister)

@@ -54,6 +54,19 @@ namespace Workshop.model
             return memberRegister;
         }
 
+        public Member GetMember(int choosenMemberId)
+        {
+            foreach (var member in memberRegister)
+            {
+                if (member.Id == choosenMemberId)
+                {
+                    return member;
+                }
+
+            }
+            return null;
+        }
+
         public void RegisterMember(string name, string personalIdentityNumber)
         {
             List<Boat> boatList = new List<Boat>();             //flytta

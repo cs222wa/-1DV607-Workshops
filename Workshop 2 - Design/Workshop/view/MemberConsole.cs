@@ -9,13 +9,6 @@ namespace Workshop.view
     class MemberConsole
     {
         private model.Member m;
-
-        /*
-        public Console()
-        {
-            m = new model.Member();
-        }
-         */
    
         public void DeleteMember()
         {
@@ -39,7 +32,7 @@ namespace Workshop.view
             System.Console.WriteLine("Change personal identity number? (y/n)");
         }
 
-        public void ListMembers(List<model.Member> memberRegister, List<model.Boat> boatRegister, int listType)
+        public void ListMembers(List<model.Member> memberRegister, int listType)
         {
             if (listType == 1)
             {
@@ -49,7 +42,7 @@ namespace Workshop.view
                 {
                     System.Console.WriteLine("Member id: " + member.Id);
                     System.Console.WriteLine("Name: " + member.Name);
-                    System.Console.WriteLine("Number of boats: " + boatRegister.Count);
+                    System.Console.WriteLine("Number of boats: " + member.BoatRegister.Count);
                     System.Console.WriteLine("------------------------");
                 }
             }

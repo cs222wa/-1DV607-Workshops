@@ -9,9 +9,6 @@ namespace Workshop.controller
     class MemberController
     {
         view.Console v;
-        model.Member m;
-        controller.BoatController bc;
-        List<model.Boat> boatRegister;
         private view.MemberConsole mv;
         private model.MemberEditor me;
 
@@ -48,14 +45,7 @@ namespace Workshop.controller
 
         public void HandleMember(int choosenMemberId)
         {
-            foreach (var member in memberRegister)
-            {
-                if (member.Id == choosenMemberId)
-                {
-                    mv.ViewSpecificMember(member);
-                }
-
-            }
+            mv.ViewSpecificMember(me.GetMember(choosenMemberId));
         }
 
         public void EditMemberName(int choosenMemberId)
@@ -109,16 +99,11 @@ namespace Workshop.controller
             EditMemberPN(choosenMemberId);
         }
 
-        public int GetMemberId(string prompt)
-        {
-            return 0;
-        }
-
         public void ListMembers()
         {
             v.ChooseListType();
             int listType = int.Parse(Console.ReadLine());
-            mv.ListMembers(boatRegister, listType);
+            mv.ListMembers(me.getListMembers(), listType);
             v.Continue();
         }
         
