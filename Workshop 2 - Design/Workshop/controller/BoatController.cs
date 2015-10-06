@@ -25,7 +25,7 @@ namespace Workshop.controller
 
         public void DeleteBoat()
         {
-            int choosenMemberId = v.AskForId("delete boat");
+            int choosenMemberId = v.AskForId("delete boat for");
             if ((me.CheckIfMemberExists(choosenMemberId)) == false)
             {
                 v.ViewErrorMessage("The member doesn't exist");
@@ -36,7 +36,7 @@ namespace Workshop.controller
             string input = Console.ReadLine();
             if (input == "y")
             {
-                
+                be.DeleteBoat(choosenMemberId);         //fixa
             }
             else
             {
@@ -55,7 +55,8 @@ namespace Workshop.controller
                 v.Continue();
                 return;
             }
-
+            
+            bv.AskForBoat("edit");          //??
             EditBoatLength(choosenMemberId);
             EditBoatType(choosenMemberId);
             v.Continue();
@@ -71,11 +72,9 @@ namespace Workshop.controller
                 v.Continue();
                 return;
             }
-            bv.RegisterBoatLength();
-            float length = float.Parse(Console.ReadLine());
-            bv.RegisterBoatType();
+            float length = bv.RegisterBoatLength();
+            int value = bv.RegisterBoatType();
 
-            int value = int.Parse(Console.ReadLine());
             switch (value)
             {
                 case 1: boatType = "Sailboat";
@@ -97,12 +96,10 @@ namespace Workshop.controller
 
         private void EditBoatLength(int choosenMemberId)
         {
-            bv.IfEditBoatLength();
-            string inputLength = Console.ReadLine();
+            string inputLength = bv.IfEditBoatLength();
             if (inputLength == "y")
             {
-                bv.EditBoatLength();
-                double length = double.Parse(Console.ReadLine());
+                float length = bv.EditBoatLength();
                 be.EditBoatLength(choosenMemberId, length);
                 v.ConfirmMessage("Boat length changed.");
             }
@@ -113,12 +110,10 @@ namespace Workshop.controller
         }
         private void EditBoatType(int choosenMemberId)
         {
-            bv.IfEditBoatType();
-            string inputType = Console.ReadLine();
+            string inputType = bv.IfEditBoatType();
             if (inputType == "y")
             {
-                bv.EditBoatType();
-                string type = Console.ReadLine();
+                string type = bv.EditBoatType();
                 be.EditBoatType(choosenMemberId, type);
                 v.ConfirmMessage("Boattype changed.");
             }

@@ -46,5 +46,10 @@ namespace Workshop.model
             }
             UpdateTextFile();
         }
+
+        public void DeleteBoat(int choosenMemberId)
+        {
+            
+        }
     }
 }

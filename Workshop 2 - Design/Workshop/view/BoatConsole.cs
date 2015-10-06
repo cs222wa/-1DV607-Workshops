@@ -8,41 +8,53 @@ namespace Workshop.view
 {
     class BoatConsole
     {
-        public void RegisterBoatLength()
+        public float RegisterBoatLength()
         {
             System.Console.WriteLine("Boat's length: ");
+            return float.Parse(System.Console.ReadLine());
         }
-        public void RegisterBoatType()
+        public int RegisterBoatType()
         {
             System.Console.WriteLine("Choose boattype: ");
             System.Console.WriteLine("1. Sailboat");
             System.Console.WriteLine("2. Motorsailor");
             System.Console.WriteLine("3. Kayak/canoe");
             System.Console.WriteLine("4. Other");
+            return int.Parse(System.Console.ReadLine());
         }
-        public void IfEditBoatLength()
+        public string IfEditBoatLength()
         {
             System.Console.WriteLine("Change boat length? (y/n)");
+            return System.Console.ReadLine();
         }
 
-        public void EditBoatLength()
+        public float EditBoatLength()
         {
             System.Console.WriteLine("New boat length: ");
+            return float.Parse(System.Console.ReadLine());
         }
 
-        public void IfEditBoatType()
+        public string IfEditBoatType()
         {
             System.Console.WriteLine("Change boattype? (y/n)");
+            return System.Console.ReadLine();
         }
 
-        public void EditBoatType()
+        public string EditBoatType()
         {
             System.Console.WriteLine("New boattype: ");
+            return System.Console.ReadLine();
         }
 
-        public void DeleteBoat()
+        public string DeleteBoat()
         {
             System.Console.WriteLine("Are you sure you want to delete boat? (y/n)");
+            return System.Console.ReadLine();
+        }
+
+        public void AskForBoat(string prompt)                   //???
+        {
+            System.Console.WriteLine("Choose what boat you want to " + prompt);
         }
     }
 }
