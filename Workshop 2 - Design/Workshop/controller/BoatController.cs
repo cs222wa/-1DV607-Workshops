@@ -12,7 +12,6 @@ namespace Workshop.controller
         private view.BoatConsole bv;
         private model.BoatEditor be;
         model.MemberEditor me;
-        string boatType;
         
 
         public BoatController()
@@ -21,11 +20,10 @@ namespace Workshop.controller
             bv = new view.BoatConsole();
             be = new model.BoatEditor(); 
             me = new model.MemberEditor();
-            boatType = null;
         }
 
 
-        public void DeleteBoat(List<model.Member> memberRegister)
+        public void DeleteBoat()
         {
             int choosenMemberId = v.AskForId("delete boat");
             if ((me.CheckIfMemberExists(choosenMemberId)) == false)
@@ -34,8 +32,6 @@ namespace Workshop.controller
                 v.Continue();
                 return;
             }
-
-            //HandleMember(choosenMemberId);
             bv.DeleteBoat();
             string input = Console.ReadLine();
             if (input == "y")
@@ -50,7 +46,7 @@ namespace Workshop.controller
             v.Continue();
         }
 
-        public void EditBoat(List<model.Member> memberRegister)
+        public void EditBoat()
         {
             int choosenMemberId = v.AskForId("edit boat for");
             if ((me.CheckIfMemberExists(choosenMemberId)) == false)
@@ -59,14 +55,14 @@ namespace Workshop.controller
                 v.Continue();
                 return;
             }
-            //HandleMembers();
+
             EditBoatLength(choosenMemberId);
             EditBoatType(choosenMemberId);
         }
 
-        public void RegisterBoat(List<model.Member> memberRegister)
+        public void RegisterBoat()
         {
-            string boatType;
+            string boatType = null;
             int choosenMemberId = v.AskForId("register boat for");
             if ((me.CheckIfMemberExists(choosenMemberId)) == false)
             {
@@ -97,7 +93,7 @@ namespace Workshop.controller
             v.Continue();
         }
 
-        public void EditBoatLength(int choosenMemberId)
+        private void EditBoatLength(int choosenMemberId)
         {
             bv.IfEditBoatLength();
             string inputLength = Console.ReadLine();
@@ -105,7 +101,7 @@ namespace Workshop.controller
             {
                 bv.EditBoatLength();
                 double length = double.Parse(Console.ReadLine());
-                EditBoatLength(choosenMemberId);
+                be.EditBoatLength(choosenMemberId);
                 v.ConfirmMessage("Boat length changed.");
             }
             else
@@ -113,7 +109,7 @@ namespace Workshop.controller
                 return;
             }
         }
-        public void EditBoatType(int choosenMemberId)
+        private void EditBoatType(int choosenMemberId)
         {
             bv.IfEditBoatType();
             string inputType = Console.ReadLine();
@@ -121,7 +117,7 @@ namespace Workshop.controller
             {
                 bv.EditBoatType();
                 double length = double.Parse(Console.ReadLine());
-                EditBoatType(choosenMemberId);
+                be.EditBoatType(choosenMemberId);
                 v.ConfirmMessage("Boattype changed.");
             }
             else
