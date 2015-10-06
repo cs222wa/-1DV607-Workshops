@@ -57,20 +57,20 @@ namespace Workshop.view
                     System.Console.WriteLine("Personal identity number: " + member.PersonalIdentityNumber);
                     System.Console.WriteLine("Number of boats: " + member.BoatRegister.Count);
                     System.Console.WriteLine("------------------------");
-                    // }
                     if (member.BoatRegister.Count > 0)
                     {
                         foreach (var boat in member.BoatRegister)
                         {
                             System.Console.WriteLine("Boats length: " + boat.Length);
                             System.Console.WriteLine("Boattype: " + boat.BoatType);
+                            System.Console.WriteLine();
                         }
                     }
                 }
             }
             else
             {
-                //fixa något
+                System.Console.WriteLine("You didn't choose list. Try again.");
             }
         }
         public void RegisterName()

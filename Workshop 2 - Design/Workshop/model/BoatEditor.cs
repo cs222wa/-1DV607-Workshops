@@ -21,26 +21,26 @@ namespace Workshop.model
             UpdateTextFile();
         }
 
-        public void EditBoatLength(int choosenMemberId)
+        public void EditBoatLength(int choosenMemberId, double length)
         {
             foreach (var member in memberRegister)
             {
                 if (member.Id == choosenMemberId)
                 {
-                    //fixa
+                    //Boat.Length = length;         HUR?!
                     break;
                 }
             }
             UpdateTextFile();
         }
 
-        public void EditBoatType(int choosenMemberId)
+        public void EditBoatType(int choosenMemberId, string type)
         {
             foreach (var member in memberRegister)
             {
                 if (member.Id == choosenMemberId)
                 {
-                    //fixa
+                    //boat.Type = type      HUR??
                     break;
                 }
             }

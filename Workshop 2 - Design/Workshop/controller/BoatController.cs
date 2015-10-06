@@ -36,7 +36,7 @@ namespace Workshop.controller
             string input = Console.ReadLine();
             if (input == "y")
             {
-                //mr.DeleteBoat(choosenMemberId, memberRegister);
+                
             }
             else
             {
@@ -58,6 +58,7 @@ namespace Workshop.controller
 
             EditBoatLength(choosenMemberId);
             EditBoatType(choosenMemberId);
+            v.Continue();
         }
 
         public void RegisterBoat()
@@ -90,6 +91,7 @@ namespace Workshop.controller
             }
 
             be.RegisterBoat(choosenMemberId, boatType, length);
+            v.ConfirmMessage("Boat added");
             v.Continue();
         }
 
@@ -101,7 +103,7 @@ namespace Workshop.controller
             {
                 bv.EditBoatLength();
                 double length = double.Parse(Console.ReadLine());
-                be.EditBoatLength(choosenMemberId);
+                be.EditBoatLength(choosenMemberId, length);
                 v.ConfirmMessage("Boat length changed.");
             }
             else
@@ -116,8 +118,8 @@ namespace Workshop.controller
             if (inputType == "y")
             {
                 bv.EditBoatType();
-                double length = double.Parse(Console.ReadLine());
-                be.EditBoatType(choosenMemberId);
+                string type = Console.ReadLine();
+                be.EditBoatType(choosenMemberId, type);
                 v.ConfirmMessage("Boattype changed.");
             }
             else
