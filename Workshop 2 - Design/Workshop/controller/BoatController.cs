@@ -10,7 +10,7 @@ namespace Workshop.controller
     {
         view.Console v;
         private view.BoatConsole bv;
-        List<model.Member> memberRegister;
+       // List<model.Member> memberRegister;
         List<model.Boat> boatRegister;
         private model.BoatEditor be;
         model.MemberEditor me;
@@ -29,9 +29,9 @@ namespace Workshop.controller
         }
 
 
-        public void DeleteBoat(int choosenMemberId)
+        public void DeleteBoat(List<model.Member> memberRegister)
         {
-            choosenMemberId = v.AskForId("delete boat");
+            int choosenMemberId = v.AskForId("delete boat");
             if ((me.CheckIfMemberExists(choosenMemberId, memberRegister)) == false)
             {
                 v.ViewErrorMessage("The member doesn't exist");
@@ -54,9 +54,9 @@ namespace Workshop.controller
             v.Continue();
         }
 
-        public void EditBoat(int choosenMemberId)
+        public void EditBoat(List<model.Member> memberRegister)
         {
-            choosenMemberId = v.AskForId("edit boat for");
+            int choosenMemberId = v.AskForId("edit boat for");
             if ((me.CheckIfMemberExists(choosenMemberId, memberRegister)) == false)
             {
                 v.ViewErrorMessage("The member doesn't exist");
@@ -68,9 +68,9 @@ namespace Workshop.controller
             EditBoatType(choosenMemberId);
         }
 
-        public void RegisterBoat(int choosenMemberId)
+        public void RegisterBoat(List<model.Member> memberRegister)
         {
-            choosenMemberId = v.AskForId("register boat for");
+            int choosenMemberId = v.AskForId("register boat for");
             if ((me.CheckIfMemberExists(choosenMemberId, memberRegister)) == false)
             {
                 v.ViewErrorMessage("The member doesn't exist");

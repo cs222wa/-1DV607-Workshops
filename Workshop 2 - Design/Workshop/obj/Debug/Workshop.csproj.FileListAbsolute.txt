@@ -26,3 +26,5 @@ C:\Users\Carolina\Documents\GitHub\1DV607-Workshops\Workshop 2 - Design\Workshop
 C:\Users\Carolina\Documents\GitHub\1DV607-Workshops\Workshop 2 - Design\Workshop\obj\Debug\Workshop.exe
 C:\Users\Carolina\Documents\GitHub\1DV607-Workshops\Workshop 2 - Design\Workshop\obj\Debug\Workshop.pdb
 C:\Users\Carolina\Documents\GitHub\1DV607-Workshops\Workshop 2 - Design\Workshop\obj\Debug\Workshop.csprojResolveAssemblyReference.cache
+C:\Users\Carolina\Documents\GitHub\1DV607-Workshops\Workshop 2 - Design\Workshop\bin\Debug\Workshop.exe
+C:\Users\Carolina\Documents\GitHub\1DV607-Workshops\Workshop 2 - Design\Workshop\bin\Debug\Workshop.pdb
