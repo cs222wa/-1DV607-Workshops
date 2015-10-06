@@ -10,8 +10,6 @@ namespace Workshop.controller
     {
         view.Console v; 
         model.MemberEditor me;
-        controller.BoatController bc;
-        controller.MemberController mc;
         List<model.Member> memberRegister;
  
 
@@ -19,8 +17,6 @@ namespace Workshop.controller
         {
             v = new view.Console();
             me = new model.MemberEditor();
-            bc = new controller.BoatController();
-            mc = new controller.MemberController();
  
         }
 
@@ -39,22 +35,54 @@ namespace Workshop.controller
                 int value = int.Parse(Console.ReadLine());
                 switch (value)
                 {
-                    case 1: mc.RegisterMember();
-                        break;
-                    case 2: mc.ListMembers();
-                        break;
-                    case 3: mc.ViewMember();
-                        break;
-                    case 4: mc.EditMember();
-                        break;
-                    case 5: mc.DeleteMember();
-                        break;
-                    case 6: bc.RegisterBoat();
-                        break;
-                    case 7: bc.EditBoat();
-                        break;
-                    case 8: bc.DeleteBoat();
-                        break;
+                    case 1:
+                        {
+                            MemberController mc = new MemberController();
+                            mc.RegisterMember();
+                            break;
+                        }
+                    case 2:
+                        {
+                            MemberController mc = new MemberController();
+                            mc.ListMembers();
+                            break;
+                        }
+                    case 3:
+                        {
+                            MemberController mc = new MemberController();
+                            mc.ViewMember();
+                            break;
+                        }
+                    case 4:
+                        {
+                            MemberController mc = new MemberController();
+                            mc.EditMember();
+                            break;
+                        }
+                    case 5:
+                        {
+                            MemberController mc = new MemberController();
+                            mc.DeleteMember();
+                            break;
+                        }
+                    case 6:
+                        {
+                            BoatController bc = new BoatController();
+                            bc.RegisterBoat();
+                            break;
+                        }
+                    case 7:
+                        {
+                            BoatController bc = new BoatController();
+                            bc.EditBoat();
+                            break;
+                        }
+                    case 8:
+                        {
+                            BoatController bc = new BoatController();
+                            bc.DeleteBoat();
+                            break;
+                        }
                     case 9: return;
                     default:
                         break;
