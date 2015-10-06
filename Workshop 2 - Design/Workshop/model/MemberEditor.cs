@@ -10,7 +10,7 @@ namespace Workshop.model
     {
 
         
-        public void DeleteMember(int choosenMemberId, List<Member> memberRegister)
+        public void DeleteMember(int choosenMemberId)
         {
             foreach (var member in memberRegister)
             {
@@ -49,9 +49,8 @@ namespace Workshop.model
             UpdateTextFile();
         }
 
-        public List<Member> getListMembers(model.Member member)
+        public List<Member> getListMembers()
         {
-            List<Member> memberRegister = ListMembers(member);
             return memberRegister;
         }
 
@@ -62,9 +61,8 @@ namespace Workshop.model
             model.Member newMember = new model.Member(id, name, personalIdentityNumber, boatList);
             AddMember(newMember);
             UpdateTextFile();
-            //re.SaveTextFile(newMember);
         }
-        public bool CheckIfMemberExists(int choosenMemberId, List<Member> memberRegister)
+        public bool CheckIfMemberExists(int choosenMemberId)
         {
             foreach (var member in memberRegister)
             {
