@@ -8,6 +8,32 @@ namespace Workshop.controller
 {
     class BoatController
     {
+        view.BoatConsole bv;
+        model.BoatEditor be;
+
+        public BoatController()
+        {
+            bv = new view.BoatConsole();
+            be = new model.BoatEditor();
+        }
+
+
+        public void DeleteBoat()
+        {
+           
+        }
+
+        public void EditBoat()
+        {
+           
+        }
+
+        public void RegisterBoat(int choosenMemberId)
+        {
+           
+        }
+
+        /*
         view.Console v;
         view.BoatConsole bv;
         model.MemberRegister mr;
@@ -128,5 +154,7 @@ namespace Workshop.controller
             v.ConfirmMessage("Boat deleted.");
             v.Continue();
         }
+         * 
+         * */
     }
 }

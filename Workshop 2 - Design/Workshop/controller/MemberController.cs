@@ -8,6 +8,50 @@ namespace Workshop.controller
 {
     class MemberController
     {
+        view.MemberConsole mv;
+        model.MemberEditor me;
+
+        public MemberController()
+        {
+            mv = new view.MemberConsole();
+            me = new model.MemberEditor();
+        }
+
+        public void DeleteMember()
+        {
+
+        }
+        public void EditMember()
+        {
+
+        }
+
+        public int GetMemberId(string prompt)
+        {
+            return 0;
+        }
+
+        public void ListMembers()
+        {
+
+        }
+        
+        public void RegisterMember()
+        { 
+
+        }
+
+        public void ViewMember()
+        {
+
+        }
+
+
+
+
+
+
+        /*
         view.Console v; //general console
         model.MemberRegister mr;
         model.Member m;
@@ -143,5 +187,6 @@ namespace Workshop.controller
 
             }
         }
+         * */
     }
 }

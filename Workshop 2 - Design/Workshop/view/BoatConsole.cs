@@ -10,6 +10,28 @@ namespace Workshop.view
     {
         public void RegisterBoatLength()
         {
+
+        }
+        public void RegisterBoatType()
+        {
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /*
+        public void RegisterBoatLength()
+        {
             System.Console.WriteLine("Boat's length: ");
         }
 
@@ -46,5 +68,7 @@ namespace Workshop.view
         {
             System.Console.WriteLine("Are you sure you want to delete boat? (y/n)");
         }
+         * 
+         * */
     }
 }

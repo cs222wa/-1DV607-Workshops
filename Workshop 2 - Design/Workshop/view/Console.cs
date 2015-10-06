@@ -8,6 +8,45 @@ namespace Workshop.view
 {
     class Console
     {
+        public void ChooseListType()
+        {
+            
+        }
+
+        public void ConfirmMessage(string prompt)
+        {
+
+        }
+
+        public void Continue()
+        {
+
+        }
+
+        public void ViewErrorMessage(string prompt)
+        {
+
+        }
+
+        public void ViewMenu()
+        {
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /*
         private model.Member m;
 
         public Console()
@@ -147,5 +186,7 @@ namespace Workshop.view
         {
             System.Console.WriteLine("Are you sure you want to delete member? (y/n)");
         }
+          
+         * */
     }
 }
