@@ -8,11 +8,12 @@ namespace Workshop.view
 {
     class Console
     {
-        public void ChooseListType()
+        public int ChooseListType()
         {
             System.Console.WriteLine("Choose type of list:");
             System.Console.WriteLine("1. Compact list");
             System.Console.WriteLine("2. Verbose list");
+            return int.Parse(System.Console.ReadLine());
         }
 
         public void ConfirmMessage(string prompt)
@@ -31,7 +32,7 @@ namespace Workshop.view
             System.Console.WriteLine(prompt);
         }
 
-        public void ViewMenu()
+        public int ViewMenu()
         {
             System.Console.WriteLine("MENU:");
             System.Console.WriteLine("1. Register new member");
@@ -43,6 +44,7 @@ namespace Workshop.view
             System.Console.WriteLine("7. Edit boat");
             System.Console.WriteLine("8. Delete boat");
             System.Console.WriteLine("9. Exit");
+            return int.Parse(System.Console.ReadLine());
         }
 
         public int AskForId(string prompt)

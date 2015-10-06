@@ -29,8 +29,7 @@ namespace Workshop.controller
                 return;
             }
             HandleMember(choosenMemberId);
-            mv.DeleteMember();
-            string input = Console.ReadLine();
+            string input = mv.DeleteMember();
             if (input == "y")
             {
                 me.DeleteMember(choosenMemberId);
@@ -50,12 +49,10 @@ namespace Workshop.controller
 
         public void EditMemberName(int choosenMemberId)
         {
-            mv.IfEditName();
-            string inputName = Console.ReadLine();
+            string inputName = mv.IfEditName();
             if (inputName == "y")
             {
-                mv.EditName();
-                string name = Console.ReadLine();
+                string name = mv.EditName();
                 me.EditMemberName(choosenMemberId, name);
                 v.ConfirmMessage("Membername changed.");
             }
@@ -63,17 +60,14 @@ namespace Workshop.controller
             {
                 return;
             }
-
         }
 
         public void EditMemberPN(int choosenMemberId)
         {
-            mv.IfEditPN();
-            string inputPN = Console.ReadLine();
+            string inputPN = mv.IfEditPN();
             if (inputPN == "y")
             {
-                mv.EditPN();
-                string pn = Console.ReadLine();
+                string pn = mv.EditPN();
                 me.EditMemberPN(choosenMemberId, pn);
                 v.ConfirmMessage("Personal identity number changed.");
             }
@@ -101,22 +95,19 @@ namespace Workshop.controller
 
         public void ListMembers()
         {
-            v.ChooseListType();
-            int listType = int.Parse(Console.ReadLine());
+            int listType = v.ChooseListType();
             mv.ListMembers(me.getListMembers(), listType);
             v.Continue();
         }
         
         public void RegisterMember()
         {
-            mv.RegisterName();
-            string name = System.Console.ReadLine();
-            mv.RegisterPersonalIdentityNumber();
-            string personalIdentityNumber = System.Console.ReadLine();
-
+            string name = mv.RegisterName();
+            string personalIdentityNumber = mv.RegisterPersonalIdentityNumber();
+            
             me.RegisterMember(name, personalIdentityNumber);
 
-            v.ConfirmMessage("Member registered"); // + "Id: " + id + ", Name: " + name + ", Personal identity number: " + personalIdentityNumber);
+            v.ConfirmMessage("Member registered"); 
             v.Continue();
         }
 

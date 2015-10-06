@@ -10,26 +10,30 @@ namespace Workshop.view
     {
         private model.Member m;
    
-        public void DeleteMember()
+        public string DeleteMember()
         {
             System.Console.WriteLine("Are you sure you want to delete member? (y/n)");
+            return System.Console.ReadLine();
         }
-        public void EditName()
+        public string EditName()
         {
-            System.Console.WriteLine("Name: "); 
+            System.Console.WriteLine("Name: ");
+            return System.Console.ReadLine();
         }
         public void EditPN()
         {
             System.Console.WriteLine("Personal identity number: ");
         }
-        public void IfEditName()
+        public string IfEditName()
         {
             System.Console.WriteLine("Change name? (y/n)");
+            return System.Console.ReadLine();
         }
 
-        public void IfEditPN()
+        public string IfEditPN()
         {
             System.Console.WriteLine("Change personal identity number? (y/n)");
+            return System.Console.ReadLine();
         }
 
         public void ListMembers(List<model.Member> memberRegister, int listType)
