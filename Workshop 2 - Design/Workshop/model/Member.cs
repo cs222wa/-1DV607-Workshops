@@ -14,6 +14,20 @@ namespace Workshop.model
         private string personalIdentityNumber;
         public List<Boat> boatRegister = new List<Boat>();
 
+        public Member()
+        {
+
+        }
+        
+        public Member(int id, string name, string personalIdentityNumber, List<Boat> boatList)
+        //public Member(int id, string name, string personalIdentityNumber)
+        {
+            Id = id;
+            Name = name;
+            PersonalIdentityNumber = personalIdentityNumber;
+        }
+        
+
         public List<Boat> BoatRegister
         {
             get { return boatRegister; }
@@ -53,15 +67,6 @@ namespace Workshop.model
                 personalIdentityNumber = value;
             }
         }
-
-        public Member(int id, string name, string personalIdentityNumber, List<Boat> boatList)
-        //public Member(int id, string name, string personalIdentityNumber)
-        {
-            Id = id;
-            Name = name;
-            PersonalIdentityNumber = personalIdentityNumber;
-        }
-
 
         public List<Boat> RegisterBoat(float length, string boatType)
         {

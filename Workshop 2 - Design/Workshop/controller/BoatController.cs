@@ -8,138 +8,37 @@ namespace Workshop.controller
 {
     class BoatController
     {
-        private view.BoatConsole bv;
-        private model.BoatEditor be;
-
-        public BoatController()
-        {
-            bv = new view.BoatConsole();
-            be = new model.BoatEditor();
-        }
-
-
-        public void DeleteBoat()
-        {
-           
-        }
-
-        public void EditBoat()
-        {
-           
-        }
-
-        public void RegisterBoat(int choosenMemberId)
-        {
-           
-        }
-
-        /*
         view.Console v;
-        view.BoatConsole bv;
-        model.MemberRegister mr;
-       
+        private view.BoatConsole bv;
+        List<model.Member> memberRegister;
+        List<model.Boat> boatRegister;
+        private model.BoatEditor be;
+        model.MemberEditor me;
         string boatType;
         float length;
+        
 
         public BoatController()
         {
             v = new view.Console();
             bv = new view.BoatConsole();
-            mr = new model.MemberRegister();
+            be = new model.BoatEditor(); 
+            me = new model.MemberEditor();
             boatType = null;
             length = 0;
         }
-        
-        public void RegisterBoat(List<model.Member> memberRegister)
+
+
+        public void DeleteBoat()
         {
-            int choosenMemberId = v.AskForMember("register boat for");
-            if ((mr.CheckIfMemberExists(choosenMemberId, memberRegister)) == false)
+            int choosenMemberId = v.AskForId("delete boat");
+            if ((me.CheckIfMemberExists(choosenMemberId, memberRegister)) == false)
             {
                 v.ViewErrorMessage("The member doesn't exist");
                 v.Continue();
                 return;
             }
-            bv.RegisterBoatLength();
-            float length = float.Parse(Console.ReadLine());
-            bv.RegisterBoatType();
-            
-            int value = int.Parse(Console.ReadLine());
-            switch (value)
-            {
-                case 1: boatType = "Sailboat";
-                    break;
-                case 2: boatType = "Motorsailor";
-                    break;
-                case 3: boatType = "Kayak/Canoe";
-                    break;
-                case 4: boatType = "Other";          
-                    break;
-                default:
-                    break;
-            }
 
-            mr.RegisterBoat(choosenMemberId, length, boatType, memberRegister);
-            v.Continue();
-        }
-
-        public void EditBoat(List<model.Member> memberRegister)
-        {
-            int choosenMemberId = v.AskForMember("edit boat for");
-            if ((mr.CheckIfMemberExists(choosenMemberId, memberRegister)) == false)
-            {
-                v.ViewErrorMessage("The member doesn't exist");
-                v.Continue();
-                return;
-            }
-            //HandleMembers();
-            EditBoatLength(choosenMemberId);
-            EditBoatType(choosenMemberId);
-        }
-
-        public void EditBoatLength(int choosenMemberId)
-        {
-            bv.IfEditBoatLength();
-            string inputLength = Console.ReadLine();
-            if (inputLength == "y")
-            {
-                bv.EditBoatLength();
-                double length = double.Parse(Console.ReadLine());
-                mr.EditBoatLength(choosenMemberId);
-                v.ConfirmMessage("Boat length changed.");
-            }
-            else
-            {
-                return;
-            }
-        }
-
-         public void EditBoatType(int choosenMemberId)
-        {
-            bv.IfEditBoatType();
-            string inputType = Console.ReadLine();
-            if (inputType == "y")
-            {
-                bv.EditBoatType();
-                double length = double.Parse(Console.ReadLine());
-                mr.EditBoatType(choosenMemberId);
-                v.ConfirmMessage("Boattype changed.");
-            }
-            else
-            {
-                return;
-            }
-        }
-
-         public void DeleteBoat(List<model.Member> memberRegister)
-        {
-            int choosenMemberId = v.AskForMember("delete boat");
-            if ((mr.CheckIfMemberExists(choosenMemberId, memberRegister)) == false)
-            {
-                v.ViewErrorMessage("The member doesn't exist");
-                v.Continue();
-                return;
-            }
-            
             //HandleMember(choosenMemberId);
             bv.DeleteBoat();
             string input = Console.ReadLine();
@@ -154,7 +53,84 @@ namespace Workshop.controller
             v.ConfirmMessage("Boat deleted.");
             v.Continue();
         }
-         * 
-         * */
+
+        public void EditBoat()
+        {
+            int choosenMemberId = v.AskForId("edit boat for");
+            if ((me.CheckIfMemberExists(choosenMemberId, memberRegister)) == false)
+            {
+                v.ViewErrorMessage("The member doesn't exist");
+                v.Continue();
+                return;
+            }
+            //HandleMembers();
+            EditBoatLength(choosenMemberId);
+            EditBoatType(choosenMemberId);
+        }
+
+        public void RegisterBoat(int choosenMemberId)
+        {
+            choosenMemberId = v.AskForId("register boat for");
+            if ((me.CheckIfMemberExists(choosenMemberId, memberRegister)) == false)
+            {
+                v.ViewErrorMessage("The member doesn't exist");
+                v.Continue();
+                return;
+            }
+            bv.RegisterBoatLength();
+            float length = float.Parse(Console.ReadLine());
+            bv.RegisterBoatType();
+
+            int value = int.Parse(Console.ReadLine());
+            switch (value)
+            {
+                case 1: boatType = "Sailboat";
+                    break;
+                case 2: boatType = "Motorsailor";
+                    break;
+                case 3: boatType = "Kayak/Canoe";
+                    break;
+                case 4: boatType = "Other";
+                    break;
+                default:
+                    break;
+            }
+
+            be.RegisterBoat(choosenMemberId, boatType, length);
+            v.Continue();
+        }
+
+        public void EditBoatLength(int choosenMemberId)
+        {
+            bv.IfEditBoatLength();
+            string inputLength = Console.ReadLine();
+            if (inputLength == "y")
+            {
+                bv.EditBoatLength();
+                double length = double.Parse(Console.ReadLine());
+                EditBoatLength(choosenMemberId);
+                v.ConfirmMessage("Boat length changed.");
+            }
+            else
+            {
+                return;
+            }
+        }
+        public void EditBoatType(int choosenMemberId)
+        {
+            bv.IfEditBoatType();
+            string inputType = Console.ReadLine();
+            if (inputType == "y")
+            {
+                bv.EditBoatType();
+                double length = double.Parse(Console.ReadLine());
+                EditBoatType(choosenMemberId);
+                v.ConfirmMessage("Boattype changed.");
+            }
+            else
+            {
+                return;
+            }
+        }
     }
 }

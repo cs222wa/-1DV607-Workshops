@@ -12,6 +12,7 @@ namespace Workshop.controller
         model.MemberEditor me;
         model.Member m;
         controller.BoatController bc;
+        controller.MemberController mc;
         List<model.Member> memberRegister;
         List<model.Boat> boatRegister;
 
@@ -21,6 +22,7 @@ namespace Workshop.controller
             me = new model.MemberEditor();
             m = new model.Member();
             bc = new controller.BoatController();
+            mc = new controller.MemberController();
             boatRegister = new List<model.Boat>();
         }
 
@@ -39,15 +41,15 @@ namespace Workshop.controller
                 int value = int.Parse(Console.ReadLine());
                 switch (value)
                 {
-                    case 1: RegisterMember();
+                    case 1: mc.RegisterMember();
                         break;
-                    case 2: ListMembers();
+                    case 2: mc.ListMembers();
                         break;
-                    case 3: ViewMember();
+                    case 3: mc.ViewMember();
                         break;
-                    case 4: EditMember();
+                    case 4: mc.EditMember();
                         break;
-                    case 5: DeleteMember();
+                    case 5: mc.DeleteMember();
                         break;
                     case 6: bc.RegisterBoat(memberRegister);
                         break;

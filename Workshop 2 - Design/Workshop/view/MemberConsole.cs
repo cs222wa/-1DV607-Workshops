@@ -39,7 +39,7 @@ namespace Workshop.view
             System.Console.WriteLine("Change personal identity number? (y/n)");
         }
 
-        public void ListMembers(List<Member> memberRegister, List<model.Boat> boatRegister, int listType)
+        public void ListMembers(List<model.Member> memberRegister, List<model.Boat> boatRegister, int listType)
         {
             if (listType == 1)
             {

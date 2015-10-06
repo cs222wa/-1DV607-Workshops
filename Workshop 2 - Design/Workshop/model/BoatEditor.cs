@@ -14,7 +14,7 @@ namespace Workshop.model
             {
                 if (member.Id == memberId)
                 {
-                    member.BoatRegister = RegisterBoat(length, boatType);
+                    member.BoatRegister = member.RegisterBoat(length, type);
                     break;
                 }
             }

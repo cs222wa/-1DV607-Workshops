@@ -9,11 +9,7 @@ namespace Workshop.model
     class MemberEditor : RegisterEditor
     {
 
-        public bool CheckIfMemberExists()
-        {
-            return false;
-        }
-
+        
         public void DeleteMember(int choosenMemberId, List<Member> memberRegister)
         {
             foreach (var member in memberRegister)

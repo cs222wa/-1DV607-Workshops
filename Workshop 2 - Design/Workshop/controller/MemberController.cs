@@ -8,6 +8,11 @@ namespace Workshop.controller
 {
     class MemberController
     {
+        view.Console v;
+        model.Member m;
+        controller.BoatController bc;
+        List<model.Member> memberRegister;
+        List<model.Boat> boatRegister;
         private view.MemberConsole mv;
         private model.MemberEditor me;
 
@@ -19,154 +24,19 @@ namespace Workshop.controller
 
         public void DeleteMember()
         {
-
-        }
-        public void EditMember()
-        {
-
-        }
-
-        public int GetMemberId(string prompt)
-        {
-            return 0;
-        }
-
-        public void ListMembers()
-        {
-
-        }
-        
-        public void RegisterMember()
-        { 
-
-        }
-
-        public void ViewMember()
-        {
-
-        }
-
-
-
-
-
-
-        /*
-        view.Console v; //general console
-        model.MemberRegister mr;
-        model.Member m;
-        controller.BoatController bc;
-        List<model.Member> memberRegister;
-        List<model.Boat> boatRegister;
-       
-        public MemberController()
-        {
-            v = new view.Console();
-            mr = new model.MemberRegister();
-            m = new model.Member();
-            bc = new controller.BoatController();
-            boatRegister = new List<model.Boat>();
-        }
-
-        public void RegisterMember()
-        {
-            v.RegisterName();
-            string name = System.Console.ReadLine();
-            v.RegisterPersonalIdentityNumber();
-            string personalIdentityNumber = System.Console.ReadLine();
-
-            mr.RegisterMember(name, personalIdentityNumber);
-
-            v.ConfirmMessage("Member registered"); // + "Id: " + id + ", Name: " + name + ", Personal identity number: " + personalIdentityNumber);
-            v.Continue();
-        }
-
-        public void ListMembers()
-        {
-            v.ChooseListType();
-            int listType = int.Parse(Console.ReadLine());
-            v.ListMembers(memberRegister, boatRegister, listType);
-            v.Continue();
-        }
-
-        public void ViewMember()
-        {
-            int choosenMemberId = v.AskForMember("view");
-            if ((mr.CheckIfMemberExists(choosenMemberId, memberRegister)) == false)
+            int choosenMemberId = v.AskForId("delete");
+            if ((me.CheckIfMemberExists(choosenMemberId, memberRegister)) == false)
             {
                 v.ViewErrorMessage("The member doesn't exist");
                 v.Continue();
                 return;
             }
             HandleMember(choosenMemberId);
-            v.Continue();
-        }
-
-        public void EditMember()
-        {
-            int choosenMemberId = v.AskForMember("edit");
-            if ((mr.CheckIfMemberExists(choosenMemberId, memberRegister)) == false)
-            {
-                v.ViewErrorMessage("The member doesn't exist");
-                v.Continue();
-                return;
-            }
-            HandleMember(choosenMemberId);
-            EditMemberName(choosenMemberId);
-            EditMemberPN(choosenMemberId);
-        }
-
-        public void EditMemberName(int choosenMemberId)
-        {
-            v.IfEditName();
-            string inputName = Console.ReadLine();
-            if (inputName == "y")
-            {
-                v.EditName();
-                string name = Console.ReadLine();
-                mr.EditMemberName(choosenMemberId, name, memberRegister);
-                v.ConfirmMessage("Membername changed.");
-            }
-            else
-            {
-                return;
-            }
-
-        }
-
-        public void EditMemberPN(int choosenMemberId)
-        {
-            v.IfEditPN();
-            string inputPN = Console.ReadLine();
-            if (inputPN == "y")
-            {
-                v.EditPN();
-                string pn = Console.ReadLine();
-                mr.EditMemberPN(choosenMemberId, pn, memberRegister);
-                v.ConfirmMessage("Personal identity number changed.");
-            }
-            else
-            {
-                return;
-            }
-            v.Continue();
-        }
-
-        public void DeleteMember()
-        {
-            int choosenMemberId = v.AskForMember("delete");
-            if ((mr.CheckIfMemberExists(choosenMemberId, memberRegister)) == false)
-            {
-                v.ViewErrorMessage("The member doesn't exist");
-                v.Continue();
-                return;
-            }
-            HandleMember(choosenMemberId);
-            v.DeleteMember();
+            mv.DeleteMember();
             string input = Console.ReadLine();
             if (input == "y")
             {
-                mr.DeleteMember(choosenMemberId, memberRegister);
+                me.DeleteMember(choosenMemberId, memberRegister);
             }
             else
             {
@@ -182,11 +52,100 @@ namespace Workshop.controller
             {
                 if (member.Id == choosenMemberId)
                 {
-                    v.ViewSpecificMember(member);
+                    mv.ViewSpecificMember(member);
                 }
 
             }
         }
-         * */
+
+        public void EditMemberName(int choosenMemberId)
+        {
+            mv.IfEditName();
+            string inputName = Console.ReadLine();
+            if (inputName == "y")
+            {
+                mv.EditName();
+                string name = Console.ReadLine();
+                me.EditMemberName(choosenMemberId, name);
+                v.ConfirmMessage("Membername changed.");
+            }
+            else
+            {
+                return;
+            }
+
+        }
+
+        public void EditMemberPN(int choosenMemberId)
+        {
+            mv.IfEditPN();
+            string inputPN = Console.ReadLine();
+            if (inputPN == "y")
+            {
+                mv.EditPN();
+                string pn = Console.ReadLine();
+                me.EditMemberPN(choosenMemberId, pn);
+                v.ConfirmMessage("Personal identity number changed.");
+            }
+            else
+            {
+                return;
+            }
+            v.Continue();
+        }
+
+
+        public void EditMember()
+        {
+            int choosenMemberId = v.AskForId("edit");
+            if ((me.CheckIfMemberExists(choosenMemberId, memberRegister)) == false)
+            {
+                v.ViewErrorMessage("The member doesn't exist");
+                v.Continue();
+                return;
+            }
+            HandleMember(choosenMemberId);
+            EditMemberName(choosenMemberId);
+            EditMemberPN(choosenMemberId);
+        }
+
+        public int GetMemberId(string prompt)
+        {
+            return 0;
+        }
+
+        public void ListMembers()
+        {
+            v.ChooseListType();
+            int listType = int.Parse(Console.ReadLine());
+            mv.ListMembers(memberRegister, boatRegister, listType);
+            v.Continue();
+        }
+        
+        public void RegisterMember()
+        {
+            mv.RegisterName();
+            string name = System.Console.ReadLine();
+            mv.RegisterPersonalIdentityNumber();
+            string personalIdentityNumber = System.Console.ReadLine();
+
+            me.RegisterMember(name, personalIdentityNumber);
+
+            v.ConfirmMessage("Member registered"); // + "Id: " + id + ", Name: " + name + ", Personal identity number: " + personalIdentityNumber);
+            v.Continue();
+        }
+
+        public void ViewMember()
+        {
+            int choosenMemberId = v.AskForId("view");
+            if ((me.CheckIfMemberExists(choosenMemberId, memberRegister)) == false)
+            {
+                v.ViewErrorMessage("The member doesn't exist");
+                v.Continue();
+                return;
+            }
+            HandleMember(choosenMemberId);
+            v.Continue();
+        }
     }
 }
