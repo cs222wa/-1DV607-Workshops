@@ -32,11 +32,13 @@ namespace Workshop.controller
                 v.Continue();
                 return;
             }
-            bv.DeleteBoat();
-            string input = Console.ReadLine();
+            List<model.Boat> boatRegister = be.GetBoats(choosenMemberId);
+            bv.DisplayBoats(boatRegister);
+            int boatNr = bv.AskForBoat("delete");
+            string input = bv.DeleteBoat();
             if (input == "y")
             {
-                be.DeleteBoat(choosenMemberId);         //fixa
+                be.DeleteBoat(choosenMemberId, boatNr);         
             }
             else
             {
@@ -55,10 +57,11 @@ namespace Workshop.controller
                 v.Continue();
                 return;
             }
-            
-            bv.AskForBoat("edit");          //??
-            EditBoatLength(choosenMemberId);
-            EditBoatType(choosenMemberId);
+            List<model.Boat> boatRegister = be.GetBoats(choosenMemberId);
+            bv.DisplayBoats(boatRegister);
+            int boatNr = bv.AskForBoat("edit");          //??
+            EditBoatLength(choosenMemberId, boatNr);
+            EditBoatType(choosenMemberId, boatNr);
             v.Continue();
         }
 
@@ -94,13 +97,13 @@ namespace Workshop.controller
             v.Continue();
         }
 
-        private void EditBoatLength(int choosenMemberId)
+        private void EditBoatLength(int choosenMemberId, int boatNr)
         {
             string inputLength = bv.IfEditBoatLength();
             if (inputLength == "y")
             {
                 float length = bv.EditBoatLength();
-                be.EditBoatLength(choosenMemberId, length);
+                be.EditBoatLength(choosenMemberId, boatNr, length);
                 v.ConfirmMessage("Boat length changed.");
             }
             else
@@ -108,13 +111,13 @@ namespace Workshop.controller
                 return;
             }
         }
-        private void EditBoatType(int choosenMemberId)
+        private void EditBoatType(int choosenMemberId, int boatNr)
         {
             string inputType = bv.IfEditBoatType();
             if (inputType == "y")
             {
                 string type = bv.EditBoatType();
-                be.EditBoatType(choosenMemberId, type);
+                be.EditBoatType(choosenMemberId, boatNr, type);
                 v.ConfirmMessage("Boattype changed.");
             }
             else

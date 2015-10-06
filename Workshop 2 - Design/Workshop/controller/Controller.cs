@@ -16,8 +16,7 @@ namespace Workshop.controller
         public Controller()
         {
             v = new view.Console();
-            me = new model.MemberEditor();
- 
+            me = new model.MemberEditor(); 
         }
 
         public void Start()
@@ -31,8 +30,7 @@ namespace Workshop.controller
             while (true)
             {
                 Console.Clear();
-                v.ViewMenu();
-                int value = int.Parse(Console.ReadLine());
+                int value = v.ViewMenu();
                 switch (value)
                 {
                     case 1:

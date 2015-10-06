@@ -8,8 +8,7 @@ namespace Workshop.view
 {
     class MemberConsole
     {
-        private model.Member m;
-   
+          
         public string DeleteMember()
         {
             System.Console.WriteLine("Are you sure you want to delete member? (y/n)");
@@ -20,9 +19,10 @@ namespace Workshop.view
             System.Console.WriteLine("Name: ");
             return System.Console.ReadLine();
         }
-        public void EditPN()
+        public string EditPN()
         {
             System.Console.WriteLine("Personal identity number: ");
+            return System.Console.ReadLine();
         }
         public string IfEditName()
         {
@@ -60,7 +60,7 @@ namespace Workshop.view
                     System.Console.WriteLine("Name: " + member.Name);
                     System.Console.WriteLine("Personal identity number: " + member.PersonalIdentityNumber);
                     System.Console.WriteLine("Number of boats: " + member.BoatRegister.Count);
-                    System.Console.WriteLine("------------------------");
+                    System.Console.WriteLine();
                     if (member.BoatRegister.Count > 0)
                     {
                         foreach (var boat in member.BoatRegister)
@@ -69,7 +69,8 @@ namespace Workshop.view
                             System.Console.WriteLine("Boattype: " + boat.BoatType);
                             System.Console.WriteLine();
                         }
-                    }
+                     }
+                    System.Console.WriteLine("------------------------");
                 }
             }
             else
@@ -77,15 +78,17 @@ namespace Workshop.view
                 System.Console.WriteLine("You didn't choose list. Try again.");
             }
         }
-        public void RegisterName()
+        public string RegisterName()
         {
             System.Console.Clear();
             System.Console.WriteLine("REGISTER MEMBER");
             System.Console.WriteLine("Name: ");
+            return System.Console.ReadLine();
         }
-        public void RegisterPersonalIdentityNumber()
+        public string RegisterPersonalIdentityNumber()
         {
             System.Console.WriteLine("Personal identity number: ");
+            return System.Console.ReadLine();
         }
         public void ViewSpecificMember(model.Member member)
         {

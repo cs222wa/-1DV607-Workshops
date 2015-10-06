@@ -20,7 +20,6 @@ namespace Workshop.model
         }
         
         public Member(int id, string name, string personalIdentityNumber, List<Boat> boatList)
-        //public Member(int id, string name, string personalIdentityNumber)
         {
             Id = id;
             Name = name;
@@ -74,7 +73,6 @@ namespace Workshop.model
             model.Boat newBoat = new model.Boat(length, boatType);
             BoatRegister.Add(newBoat);
             return BoatRegister;
-        }
-                
+        }                
     }       
 }

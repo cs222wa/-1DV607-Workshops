@@ -8,6 +8,19 @@ namespace Workshop.model
 {
     class BoatEditor : RegisterEditor
     {
+
+        public List<Boat> GetBoats(int choosenMemberId)
+        {
+            foreach (var member in memberRegister)
+            {
+                if (member.Id == choosenMemberId)
+                {
+                    return member.BoatRegister;
+                }                
+            }
+            return null;            //??
+        }
+
         public void RegisterBoat(int memberId, string type, float length)
         {
             foreach (var member in memberRegister)
@@ -21,35 +34,46 @@ namespace Workshop.model
             UpdateTextFile();
         }
 
-        public void EditBoatLength(int choosenMemberId, double length)
+        public void EditBoatLength(int choosenMemberId, int boatNr, float length)
         {
             foreach (var member in memberRegister)
             {
                 if (member.Id == choosenMemberId)
                 {
-                    //Boat.Length = length;         HUR?!
+                    Boat boatToEdit = member.BoatRegister[boatNr];
+                    boatToEdit.Length = length;
                     break;
                 }
             }
             UpdateTextFile();
         }
 
-        public void EditBoatType(int choosenMemberId, string type)
+        public void EditBoatType(int choosenMemberId, int boatNr, string type)
         {
             foreach (var member in memberRegister)
             {
                 if (member.Id == choosenMemberId)
                 {
-                    //boat.Type = type      HUR??
+                    Boat boatToEdit = member.BoatRegister[boatNr];
+                    boatToEdit.BoatType = type;
                     break;
                 }
             }
             UpdateTextFile();
         }
 
-        public void DeleteBoat(int choosenMemberId)
+        public void DeleteBoat(int choosenMemberId, int boatNr)
         {
-            
+            foreach (var member in memberRegister)
+            {
+                if (member.Id == choosenMemberId)
+                {
+                    Boat boatToRemove = member.BoatRegister[boatNr];
+                    member.BoatRegister.Remove(boatToRemove);
+                    break;
+                }
+            }
+            UpdateTextFile();
         }
     }
 }

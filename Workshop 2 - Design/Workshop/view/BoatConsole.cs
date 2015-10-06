@@ -22,6 +22,15 @@ namespace Workshop.view
             System.Console.WriteLine("4. Other");
             return int.Parse(System.Console.ReadLine());
         }
+
+        public void DisplayBoats(List<model.Boat> boatRegister)
+        {
+            for (int i = 0; i < boatRegister.Count; i++)
+            {
+                System.Console.WriteLine("{0} {1}", i + 1, boatRegister[i].BoatType + ", " + boatRegister[i].Length);
+            }
+        }
+
         public string IfEditBoatLength()
         {
             System.Console.WriteLine("Change boat length? (y/n)");
@@ -52,9 +61,10 @@ namespace Workshop.view
             return System.Console.ReadLine();
         }
 
-        public void AskForBoat(string prompt)                   //???
+        public int AskForBoat(string prompt)                   //???
         {
             System.Console.WriteLine("Choose what boat you want to " + prompt);
+            return int.Parse(System.Console.ReadLine());
         }
     }
 }

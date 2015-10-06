@@ -1,15 +1,22 @@
 --------------------
 Carro
 870706-2702
-5
+4
 Motorsailor
 123
 Motorsailor
-8
-Motorsailor
-8
+12,3
 Sailboat
 5
 Sailboat
 55
 7
+--------------------
+member 1
+750505-5665
+2
+Motorsailor
+12
+Kayak/Canoe
+9
+8
