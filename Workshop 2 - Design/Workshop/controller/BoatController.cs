@@ -29,9 +29,9 @@ namespace Workshop.controller
         }
 
 
-        public void DeleteBoat()
+        public void DeleteBoat(int choosenMemberId)
         {
-            int choosenMemberId = v.AskForId("delete boat");
+            choosenMemberId = v.AskForId("delete boat");
             if ((me.CheckIfMemberExists(choosenMemberId, memberRegister)) == false)
             {
                 v.ViewErrorMessage("The member doesn't exist");
@@ -54,9 +54,9 @@ namespace Workshop.controller
             v.Continue();
         }
 
-        public void EditBoat()
+        public void EditBoat(int choosenMemberId)
         {
-            int choosenMemberId = v.AskForId("edit boat for");
+            choosenMemberId = v.AskForId("edit boat for");
             if ((me.CheckIfMemberExists(choosenMemberId, memberRegister)) == false)
             {
                 v.ViewErrorMessage("The member doesn't exist");

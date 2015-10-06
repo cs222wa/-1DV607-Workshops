@@ -49,7 +49,7 @@ namespace Workshop.model
             UpdateTextFile();
         }
 
-        public List<Member> ListMembers(model.Member member)
+        public List<Member> getListMembers(model.Member member)
         {
             List<Member> memberRegister = ListMembers(member);
             return memberRegister;

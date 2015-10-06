@@ -28,7 +28,7 @@ namespace Workshop.controller
 
         public void Start()
         {
-            memberRegister = me.ListMembers(m);
+            memberRegister = me.getListMembers(m);
             ChooseFromMenu();
         }
 
