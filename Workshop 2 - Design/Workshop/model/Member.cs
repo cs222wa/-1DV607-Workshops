@@ -25,6 +25,7 @@ namespace Workshop.model
             Id = id;
             Name = name;
             PersonalIdentityNumber = personalIdentityNumber;
+            boatRegister = boatList;
         }
         
 

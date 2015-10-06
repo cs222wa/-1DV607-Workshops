@@ -138,7 +138,7 @@ namespace Workshop.controller
         public void ViewMember()
         {
             int choosenMemberId = v.AskForId("view");
-            if ((me.CheckIfMemberExists(choosenMemberId, memberRegister)) == false)
+            if ((me.CheckIfMemberExists(choosenMemberId)) == false)
             {
                 v.ViewErrorMessage("The member doesn't exist");
                 v.Continue();

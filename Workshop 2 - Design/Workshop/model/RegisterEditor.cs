@@ -42,7 +42,7 @@ namespace Workshop.model
             }
         }
 
-        public void UpdateTextFile()
+        protected void UpdateTextFile()
         {
             using (StreamWriter writer = new StreamWriter("memberRegister.txt", false))
             {
@@ -67,7 +67,7 @@ namespace Workshop.model
             }
         }
 
-        public int GetLastMemberId()
+        protected int GetLastMemberId()
         {
             using (StreamReader reader = new StreamReader("memberRegister.txt"))
             {
@@ -80,12 +80,12 @@ namespace Workshop.model
             }
         }
 
-        public void AddMember(model.Member memberToAdd)
+        protected void AddMember(model.Member memberToAdd)
         {
             memberRegister.Add(memberToAdd);
         }
 
-        public void DeleteMember(model.Member memberToRemove)
+        protected void DeleteMember(model.Member memberToRemove)
         {
             memberRegister.Remove(memberToRemove);
         }
