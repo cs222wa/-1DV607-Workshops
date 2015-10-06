@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Workshop.model
 {
-    class MemberRegister
+    class MemberEditor : RegisterEditor
     {
-       model.RegisterEditor re;
+        model.RegisterEditor re;
        model.Member m;
        List<model.Member> memberRegister;                   
                
