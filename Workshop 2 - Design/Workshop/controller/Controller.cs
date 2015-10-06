@@ -8,7 +8,7 @@ namespace Workshop.controller
 {
     class Controller
     {
-        view.Console v; //general console
+        private view.Console v; //general console
 
         public Controller()
         {

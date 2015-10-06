@@ -8,8 +8,8 @@ namespace Workshop.controller
 {
     class MemberController
     {
-        view.MemberConsole mv;
-        model.MemberEditor me;
+        private view.MemberConsole mv;
+        private model.MemberEditor me;
 
         public MemberController()
         {

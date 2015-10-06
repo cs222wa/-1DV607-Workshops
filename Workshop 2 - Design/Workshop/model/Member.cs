@@ -9,6 +9,12 @@ namespace Workshop.model
 {
     class Member
     {
+        public List<Boat> Boats { get; set; }
+
+
+
+
+        /*
         private int id;       
         private string name;
         private string personalIdentityNumber;
@@ -84,7 +90,7 @@ namespace Workshop.model
             BoatRegister.Add(newBoat);
             return BoatRegister;
         }
-
+        */
         
     }       
 }

@@ -8,6 +8,35 @@ namespace Workshop.model
 {
     class MemberEditor : RegisterEditor
     {
+
+        public bool CheckIfMemberExists()
+        {
+            return false;
+        }
+
+        public void DeleteMember()
+        {
+
+        }
+
+        public void EditMemberName(int choosenMemberId, string name)
+        {
+
+        }
+
+        public void EditMemberPN(int choosenMemberId, string pn)
+        {
+
+        }
+
+        public void RegisterMember(string name, string pn)
+        {
+
+        }
+
+
+
+        /*
         model.RegisterEditor re;
        model.Member m;
        List<model.Member> memberRegister;                   
@@ -137,5 +166,6 @@ namespace Workshop.model
            }
            return false;
        }
+         * */
     }
 }

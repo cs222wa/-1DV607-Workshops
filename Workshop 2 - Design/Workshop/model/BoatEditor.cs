@@ -8,5 +8,9 @@ namespace Workshop.model
 {
     class BoatEditor : RegisterEditor
     {
+        public void RegisterBoat(int memberId, string type, float length)
+        {
+
+        }
     }
 }

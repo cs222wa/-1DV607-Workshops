@@ -8,8 +8,8 @@ namespace Workshop.controller
 {
     class BoatController
     {
-        view.BoatConsole bv;
-        model.BoatEditor be;
+        private view.BoatConsole bv;
+        private model.BoatEditor be;
 
         public BoatController()
         {

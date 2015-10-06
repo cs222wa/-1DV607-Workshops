@@ -9,6 +9,27 @@ namespace Workshop.model
 {
     class RegisterEditor
     {
+        protected List<Member> Members { get; set; }
+
+        public RegisterEditor()
+        {
+
+        }
+
+        private void ReadTextFile()
+        {
+           
+        }
+
+        public void UpdateTextFile()
+        {
+
+        }
+      
+
+
+
+        /*
         private List<Member> memberRegister;
         private List<Boat> boatRegister;
   
@@ -138,5 +159,7 @@ namespace Workshop.model
         {
             memberRegister.Add(memberToAdd);
         }
+         * 
+         * */
     }
 }
