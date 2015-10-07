@@ -25,10 +25,12 @@ namespace Workshop.view
 
         public void DisplayBoats(List<model.Boat> boatRegister)
         {
+            System.Console.WriteLine("-------------------------");
             for (int i = 0; i < boatRegister.Count; i++)
             {
                 System.Console.WriteLine("{0} {1}", i + 1, boatRegister[i].BoatType + ", " + boatRegister[i].Length);
             }
+            System.Console.WriteLine("-------------------------");
         }
 
         public string IfEditBoatLength()

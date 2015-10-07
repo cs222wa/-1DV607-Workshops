@@ -99,6 +99,16 @@ namespace Workshop.view
             System.Console.WriteLine(member.PersonalIdentityNumber);
             System.Console.WriteLine("-------------------------");
         }
+
+        public void DisplayMembers(List<model.Member> memberRegister)
+        {
+            System.Console.WriteLine("-------------------------");
+            foreach (var member in memberRegister)
+            {                
+                System.Console.WriteLine("{0} {1}", member.Id, member.Name);
+            }
+            System.Console.WriteLine("-------------------------");
+        }
     }
 }
 

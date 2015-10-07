@@ -9,6 +9,10 @@ namespace Workshop.model
     class MemberEditor : RegisterEditor
     {
 
+        public List<Member> DisplayMembers()
+        {
+            return memberRegister;
+        }
         
         public void DeleteMember(int choosenMemberId)
         {
@@ -69,7 +73,7 @@ namespace Workshop.model
 
         public void RegisterMember(string name, string personalIdentityNumber)
         {
-            List<Boat> boatList = new List<Boat>();             //flytta
+            List<Boat> boatList = new List<Boat>();             
             int id = (GetLastMemberId()) + 1;
             model.Member newMember = new model.Member(id, name, personalIdentityNumber, boatList);
             AddMember(newMember);
