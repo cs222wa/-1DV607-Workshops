@@ -44,11 +44,13 @@ namespace Workshop.model
             get { return name; }
             set
             {
-                if (String.IsNullOrWhiteSpace(value))
                 {
-                    throw new ArgumentNullException("Name cannot be empty.");
+                    if (String.IsNullOrWhiteSpace(value))
+                    {
+                        throw new ArgumentNullException("Name cannot be empty.");
+                    }
+                    name = value;
                 }
-                name = value;
             }
         }
         public string PersonalIdentityNumber

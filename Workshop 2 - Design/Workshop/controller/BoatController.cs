@@ -13,7 +13,6 @@ namespace Workshop.controller
         private model.BoatEditor be;
         model.MemberEditor me;
         
-
         public BoatController()
         {
             v = new view.Console();
@@ -21,7 +20,6 @@ namespace Workshop.controller
             be = new model.BoatEditor(); 
             me = new model.MemberEditor();
         }
-
 
         public void DeleteBoat()
         {
@@ -35,6 +33,12 @@ namespace Workshop.controller
             List<model.Boat> boatRegister = be.GetBoats(choosenMemberId);
             bv.DisplayBoats(boatRegister);
             int boatNr = bv.AskForBoat("delete");
+            if (!be.CheckIfBoatExists(choosenMemberId, boatNr, boatRegister))
+            {
+                v.ViewErrorMessage("The boat doesn't exist");
+                v.Continue();
+                return;
+            }
             string input = bv.DeleteBoat();
             if (input == "y")
             {
@@ -59,7 +63,13 @@ namespace Workshop.controller
             }
             List<model.Boat> boatRegister = be.GetBoats(choosenMemberId);
             bv.DisplayBoats(boatRegister);
-            int boatNr = bv.AskForBoat("edit");          //??
+            int boatNr = bv.AskForBoat("edit");
+            if (!be.CheckIfBoatExists(choosenMemberId, boatNr, boatRegister))
+            {
+                v.ViewErrorMessage("The boat doesn't exist");
+                v.Continue();
+                return;
+            }
             EditBoatLength(choosenMemberId, boatNr);
             EditBoatType(choosenMemberId, boatNr);
             v.Continue();

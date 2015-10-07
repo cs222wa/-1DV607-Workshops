@@ -18,7 +18,7 @@ namespace Workshop.model
                     return member.BoatRegister;
                 }                
             }
-            return null;            //??
+            return null;            
         }
 
         public void RegisterBoat(int memberId, string type, float length)
@@ -40,7 +40,7 @@ namespace Workshop.model
             {
                 if (member.Id == choosenMemberId)
                 {
-                    Boat boatToEdit = member.BoatRegister[boatNr];
+                    Boat boatToEdit = member.BoatRegister[boatNr - 1];
                     boatToEdit.Length = length;
                     break;
                 }
@@ -54,7 +54,7 @@ namespace Workshop.model
             {
                 if (member.Id == choosenMemberId)
                 {
-                    Boat boatToEdit = member.BoatRegister[boatNr];
+                    Boat boatToEdit = member.BoatRegister[boatNr - 1];
                     boatToEdit.BoatType = type;
                     break;
                 }
@@ -68,12 +68,30 @@ namespace Workshop.model
             {
                 if (member.Id == choosenMemberId)
                 {
-                    Boat boatToRemove = member.BoatRegister[boatNr];
+                    Boat boatToRemove = member.BoatRegister[boatNr - 1];
                     member.BoatRegister.Remove(boatToRemove);
                     break;
                 }
             }
             UpdateTextFile();
+        }
+
+        public bool CheckIfBoatExists(int choosenMemberId, int boatNr, List<Boat> boatRegister)
+        {
+            foreach (var member in memberRegister)
+            {
+                if (choosenMemberId == member.Id)
+                {
+                    for (int i = 0; i < boatRegister.Count; i++)
+                    {
+                        if (boatNr == i + 1)
+                        {
+                            return true;
+                        }
+                    }                    
+                }
+            }
+            return false;
         }
     }
 }

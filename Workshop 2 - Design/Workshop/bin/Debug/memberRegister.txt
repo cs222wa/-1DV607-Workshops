@@ -5,18 +5,16 @@ Carro
 Motorsailor
 123
 Motorsailor
-12,3
+100
 Sailboat
 5
 Sailboat
 55
 7
 --------------------
-member 1
+Member
 750505-5665
-2
+1
 Motorsailor
 12
-Kayak/Canoe
-9
 8
