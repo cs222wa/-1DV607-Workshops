@@ -25,6 +25,9 @@
 * [Link to Exe files for Application for workshop 2, grade 2](https://github.com/cs222wa/1DV607-Workshops/blob/master/Workshop%202%20-%20Design/Workshop/bin/Debug/Workshop.exe)
 * [Link to Application Code for workshop 2, grade 2](https://github.com/cs222wa/1DV607-Workshops/tree/master/Workshop%202%20-%20Design/Workshop)
 
+### Instructions
+Application is to be run in Visual Studio.
+A runnable exe-file will be added before final deadline.
 
 ##Workshop 3 - Design Using Patterns
 * -
