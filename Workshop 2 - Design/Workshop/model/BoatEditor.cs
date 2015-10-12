@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Workshop.model
 {
-    class BoatEditor : RegisterEditor
+    class BoatEditor : Editor
     {
 
         public List<Boat> GetBoats(int choosenMemberId)

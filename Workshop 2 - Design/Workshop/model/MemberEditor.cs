@@ -6,13 +6,10 @@ using System.Threading.Tasks;
 
 namespace Workshop.model
 {
-    class MemberEditor : RegisterEditor
+    class MemberEditor : Editor
     {
 
-        public List<Member> DisplayMembers()
-        {
-            return memberRegister;
-        }
+        
         
         public void DeleteMember(int choosenMemberId)
         {
@@ -53,7 +50,7 @@ namespace Workshop.model
             UpdateTextFile();
         }
 
-        public List<Member> getListMembers()
+        public List<Member> displayMembers()
         {
             return memberRegister;
         }

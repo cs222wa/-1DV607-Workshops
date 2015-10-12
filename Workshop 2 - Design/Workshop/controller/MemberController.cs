@@ -21,7 +21,7 @@ namespace Workshop.controller
 
         public void DeleteMember()
         {
-            List<model.Member> memberRegister = me.DisplayMembers();
+            List<model.Member> memberRegister = me.displayMembers();
             mv.DisplayMembers(memberRegister);
             int choosenMemberId = v.AskForId("delete");
             if ((me.CheckIfMemberExists(choosenMemberId)) == false)
@@ -83,7 +83,7 @@ namespace Workshop.controller
 
         public void EditMember()
         {
-            List<model.Member> memberRegister = me.DisplayMembers();
+            List<model.Member> memberRegister = me.displayMembers();
             mv.DisplayMembers(memberRegister);
             int choosenMemberId = v.AskForId("edit");
             if ((me.CheckIfMemberExists(choosenMemberId)) == false)
@@ -100,7 +100,7 @@ namespace Workshop.controller
         public void ListMembers()
         {
             int listType = v.ChooseListType();
-            mv.ListMembers(me.getListMembers(), listType);
+            mv.ListMembers(me.displayMembers(), listType);
             v.Continue();
         }
         
@@ -117,7 +117,7 @@ namespace Workshop.controller
 
         public void ViewMember()
         {
-            List<model.Member> memberRegister = me.DisplayMembers();
+            List<model.Member> memberRegister = me.displayMembers();
             mv.DisplayMembers(memberRegister);
             int choosenMemberId = v.AskForId("view");
             if ((me.CheckIfMemberExists(choosenMemberId)) == false)

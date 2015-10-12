@@ -7,12 +7,12 @@ using System.IO;
 
 namespace Workshop.model
 {
-    class RegisterEditor
+    class Editor
     {
                
         protected List<Member> memberRegister;
 
-        public RegisterEditor()
+        public Editor()
         {
             memberRegister = new List<Member>();
             ReadTextFile();

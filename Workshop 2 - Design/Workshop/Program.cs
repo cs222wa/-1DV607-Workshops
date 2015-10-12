@@ -12,7 +12,7 @@ namespace Workshop
         {
             controller.Controller c = new controller.Controller();
             
-            c.Start();
+            c.ChooseFromMenu();
             
         }
 

@@ -10,19 +10,11 @@ namespace Workshop.controller
     {
         view.Console v; 
         model.MemberEditor me;
-        List<model.Member> memberRegister;
- 
-
+         
         public Controller()
         {
             v = new view.Console();
             me = new model.MemberEditor(); 
-        }
-
-        public void Start()
-        {
-            memberRegister = me.getListMembers();
-            ChooseFromMenu();
         }
 
         public void ChooseFromMenu()

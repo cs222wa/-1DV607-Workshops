@@ -1,7 +1,7 @@
 --------------------
 Carro
 870706-2702
-4
+5
 Motorsailor
 123
 Motorsailor
@@ -10,9 +10,11 @@ Sailboat
 5
 Sailboat
 55
+Kayak/Canoe
+5
 7
 --------------------
-Member
+Bengt
 750505-5665
 1
 Motorsailor
@@ -24,7 +26,9 @@ member
 0
 9
 --------------------
-member
-750505-5665
-0
+Bosse
+750505-6556
+1
+Motorsailor
+6
 10
