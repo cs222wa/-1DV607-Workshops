@@ -5,7 +5,7 @@ Carro
 Motorsailor
 12,3
 Motorsailor
-15
+7
 Sailboat
 5
 Kayak/Canoe
@@ -15,7 +15,7 @@ Kayak/Canoe
 Bengt
 750505-5665
 1
-Motorsailor
+
 12
 8
 --------------------
@@ -50,12 +50,16 @@ Berit
 --------------------
 Kerstin
 450505-5665
-0
+1
+Sailboat
+12
 14
 --------------------
 Bosse
 650505-3223
-0
+1
+Sailboat
+5
 15
 --------------------
 8

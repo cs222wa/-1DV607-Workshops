@@ -21,17 +21,10 @@ namespace Workshop.controller
             me = new model.MemberEditor();
         }
 
-        public void DeleteBoat()
+        public void DeleteBoat(int choosenMemberId)
         {
             try
-            {
-                int choosenMemberId = v.AskForId("delete boat for");
-                if ((me.CheckIfMemberExists(choosenMemberId)) == false)
-                {
-                    v.ViewErrorMessage("The member doesn't exist");
-                    v.Continue();
-                    return;
-                }
+            {                
                 List<model.Boat> boatRegister = be.GetBoats(choosenMemberId);
                 bv.DisplayBoats(boatRegister);
                 int boatNr = bv.AskForBoat("delete");
@@ -63,17 +56,10 @@ namespace Workshop.controller
             v.Continue();
         }
 
-        public void EditBoat()
+        public void EditBoat(int choosenMemberId)
         {
             try
-            {
-                int choosenMemberId = v.AskForId("edit boat for");
-                if ((me.CheckIfMemberExists(choosenMemberId)) == false)
-                {
-                    v.ViewErrorMessage("The member doesn't exist");
-                    v.Continue();
-                    return;
-                }
+            {                
                 List<model.Boat> boatRegister = be.GetBoats(choosenMemberId);
                 bv.DisplayBoats(boatRegister);
                 int boatNr = bv.AskForBoat("edit");
@@ -93,18 +79,11 @@ namespace Workshop.controller
             v.Continue();
         }
 
-        public void RegisterBoat()
+        public void RegisterBoat(int choosenMemberId)
         {
             try
             {
                 string boatType = null;
-                int choosenMemberId = v.AskForId("register boat for");
-                if ((me.CheckIfMemberExists(choosenMemberId)) == false)
-                {
-                    v.ViewErrorMessage("The member doesn't exist");
-                    v.Continue();
-                    return;
-                }
                 float length = bv.RegisterBoatLength();
                 int value = bv.RegisterBoatType();
 

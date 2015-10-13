@@ -168,5 +168,26 @@ namespace Workshop.controller
             }
             v.Continue();
         }      
+
+        public int HandleMemberForBoatHandling(string prompt)
+        {
+            try
+            {
+                List<model.Member> memberRegister = me.DisplayMembers();
+                mv.DisplayMembers(memberRegister);
+                int choosenMemberId = v.AskForId(prompt);
+                if ((me.CheckIfMemberExists(choosenMemberId)) == false)
+                {
+                    v.ViewErrorMessage("The member doesn't exist");
+                    return 0;
+                }
+                return choosenMemberId;
+            }
+            catch
+            {
+                v.ViewErrorMessage("Error. Try again.");
+                return 0;
+            }
+        }        
     }
 }

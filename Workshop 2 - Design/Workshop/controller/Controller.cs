@@ -55,20 +55,41 @@ namespace Workshop.controller
                         }
                     case 6:
                         {
+                            MemberController mc = new MemberController();  
+                            int choosenMemberId = mc.HandleMemberForBoatHandling("register boat for");
+                            if (choosenMemberId == 0)
+                            {
+                                v.Continue();
+                                break;
+                            }
                             BoatController bc = new BoatController();
-                            bc.RegisterBoat();
+                            bc.RegisterBoat(choosenMemberId);
                             break;
                         }
                     case 7:
                         {
+                            MemberController mc = new MemberController();
+                            int choosenMemberId = mc.HandleMemberForBoatHandling("edit boat for");
+                            if (choosenMemberId == 0)
+                            {
+                                v.Continue();
+                                break;
+                            }
                             BoatController bc = new BoatController();
-                            bc.EditBoat();
+                            bc.EditBoat(choosenMemberId);
                             break;
                         }
                     case 8:
                         {
+                            MemberController mc = new MemberController();
+                            int choosenMemberId = mc.HandleMemberForBoatHandling("delete boat for");
+                            if (choosenMemberId == 0)
+                            {
+                                v.Continue();
+                                break;
+                            }
                             BoatController bc = new BoatController();
-                            bc.DeleteBoat();
+                            bc.DeleteBoat(choosenMemberId);
                             break;
                         }
                     case 9: return;
