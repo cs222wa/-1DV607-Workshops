@@ -61,7 +61,6 @@ namespace Workshop.model
                 {
                     return member;
                 }
-
             }
             return null;
         }
@@ -74,6 +73,7 @@ namespace Workshop.model
             AddMember(newMember);
             UpdateTextFile();
         }
+
         public bool CheckIfMemberExists(int choosenMemberId)
         {
             foreach (var member in memberRegister)

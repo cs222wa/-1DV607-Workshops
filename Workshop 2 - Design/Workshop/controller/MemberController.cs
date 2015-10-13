@@ -55,7 +55,7 @@ namespace Workshop.controller
             v.Continue();
         }
 
-        public void HandleMember(int choosenMemberId)           //??
+        public void HandleMember(int choosenMemberId)           
         {
             mv.ViewSpecificMember(me.GetMember(choosenMemberId));
         }

@@ -61,6 +61,12 @@ namespace Workshop.controller
             try
             {                
                 List<model.Boat> boatRegister = be.GetBoats(choosenMemberId);
+                if (boatRegister.Count <= 0)
+                {
+                    v.ViewErrorMessage("Member has no boats registered.");
+                    v.Continue();
+                    return;
+                }
                 bv.DisplayBoats(boatRegister);
                 int boatNr = bv.AskForBoat("edit");
                 if (!be.CheckIfBoatExists(choosenMemberId, boatNr, boatRegister))
@@ -82,26 +88,10 @@ namespace Workshop.controller
         public void RegisterBoat(int choosenMemberId)
         {
             try
-            {
-                string boatType = null;
+            {                
                 float length = bv.RegisterBoatLength();
-                int value = bv.RegisterBoatType();
-
-                switch (value)
-                {
-                    case 1: boatType = "Sailboat";
-                        break;
-                    case 2: boatType = "Motorsailor";
-                        break;
-                    case 3: boatType = "Kayak/Canoe";
-                        break;
-                    case 4: boatType = "Other";
-                        break;
-                    default: v.ViewErrorMessage("You didn't choose boat type. Try again.");
-                        v.Continue();
-                        return;
-                }
-
+                int value = int.Parse(bv.RegisterBoatType());
+                string boatType = ChooseBoatType(value);
                 be.RegisterBoat(choosenMemberId, boatType, length);
                 v.ConfirmMessage("Boat added");
             }
@@ -110,6 +100,26 @@ namespace Workshop.controller
                 v.ViewErrorMessage("Registration failed. Try again.");
             }
             v.Continue();
+        }
+
+        public string ChooseBoatType(int value)
+        {
+            string boatType;
+            switch (value)
+            {
+                case 1: boatType = "Sailboat";
+                    break;
+                case 2: boatType = "Motorsailor";
+                    break;
+                case 3: boatType = "Kayak/Canoe";
+                    break;
+                case 4: boatType = "Other";
+                    break;
+                default: v.ViewErrorMessage("You didn't choose boat type. Try again.");
+                    v.Continue();
+                    return null;
+            }
+            return boatType;
         }
 
         private void EditBoatLength(int choosenMemberId, int boatNr)
@@ -135,9 +145,14 @@ namespace Workshop.controller
         {
             string inputType = bv.IfEditBoatType();
             if (inputType == "y")
-            {
-                string type = bv.EditBoatType();
-                be.EditBoatType(choosenMemberId, boatNr, type);
+            {               
+                int value = int.Parse(bv.RegisterBoatType());
+                string boatType = ChooseBoatType(value);
+                if (boatType == null)
+                {
+                    return;
+                }
+                be.EditBoatType(choosenMemberId, boatNr, boatType);                
                 v.ConfirmMessage("Boattype changed.");
             }
             else if (inputType == "n")

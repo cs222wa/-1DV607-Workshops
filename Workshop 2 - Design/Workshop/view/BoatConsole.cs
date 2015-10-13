@@ -13,14 +13,14 @@ namespace Workshop.view
             System.Console.WriteLine("Boat's length: ");
             return float.Parse(System.Console.ReadLine());
         }
-        public int RegisterBoatType()
+        public string RegisterBoatType()
         {
             System.Console.WriteLine("Choose boattype: ");
             System.Console.WriteLine("1. Sailboat");
             System.Console.WriteLine("2. Motorsailor");
             System.Console.WriteLine("3. Kayak/canoe");
             System.Console.WriteLine("4. Other");
-            return int.Parse(System.Console.ReadLine());
+            return System.Console.ReadLine();
         }
 
         public void DisplayBoats(List<model.Boat> boatRegister)
@@ -48,12 +48,6 @@ namespace Workshop.view
         public string IfEditBoatType()
         {
             System.Console.WriteLine("Change boattype? (y/n)");
-            return System.Console.ReadLine();
-        }
-
-        public string EditBoatType()
-        {
-            System.Console.WriteLine("New boattype: ");
             return System.Console.ReadLine();
         }
 

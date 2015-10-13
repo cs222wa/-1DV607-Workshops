@@ -8,8 +8,7 @@ using System.IO;
 namespace Workshop.model
 {
     class Editor
-    {
-               
+    {               
         protected List<Member> memberRegister;
 
         public Editor()

@@ -25,14 +25,14 @@ namespace Workshop.model
             Name = name;
             PersonalIdentityNumber = personalIdentityNumber;
             boatRegister = boatList;
-        }
-        
+        }        
 
         public List<Boat> BoatRegister
         {
             get { return boatRegister; }
             set { boatRegister = value; }
         }
+
         public int Id
         {
             get { return id; }
@@ -53,6 +53,7 @@ namespace Workshop.model
                 }
             }
         }
+
         public string PersonalIdentityNumber
         {
             get { return personalIdentityNumber; }

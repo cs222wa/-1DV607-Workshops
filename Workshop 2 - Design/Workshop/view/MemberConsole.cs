@@ -7,23 +7,25 @@ using System.Threading.Tasks;
 namespace Workshop.view
 {
     class MemberConsole
-    {
-          
+    {          
         public string DeleteMember()
         {
             System.Console.WriteLine("Are you sure you want to delete member? (y/n)");
             return System.Console.ReadLine();
         }
+
         public string EditName()
         {
             System.Console.WriteLine("Name: ");
             return System.Console.ReadLine();
         }
+
         public string EditPN()
         {
             System.Console.WriteLine("Personal identity number (yymmdd-xxxx): ");
             return System.Console.ReadLine();
         }
+
         public string IfEditName()
         {
             System.Console.WriteLine("Change name? (y/n)");
@@ -92,6 +94,7 @@ namespace Workshop.view
             System.Console.WriteLine("Personal identity number (yymmdd-xxxx): ");
             return System.Console.ReadLine();
         }
+
         public void ViewSpecificMember(model.Member member)
         {
             System.Console.WriteLine("VIEW MEMBER");
