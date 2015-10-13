@@ -47,8 +47,8 @@ namespace Workshop.model
                 {
                     if (String.IsNullOrWhiteSpace(value))
                     {
-                        throw new ArgumentNullException("Name cannot be empty.");
-                    }
+                        throw new ArgumentNullException();
+                    }                    
                     name = value;
                 }
             }
@@ -62,7 +62,7 @@ namespace Workshop.model
                 {
                     throw new ArgumentNullException();
                 }
-                if (!Regex.IsMatch(value, @"^(\d{6}|\d{8})[-|(\s)]{0,1}\d{4}$"))
+                if (!Regex.IsMatch(value, @"^(\d{6}|\d{8})[-]{1}\d{4}$"))
                 {
                     throw new ArgumentOutOfRangeException();
                 }

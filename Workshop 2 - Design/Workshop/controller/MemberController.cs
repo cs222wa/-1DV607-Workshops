@@ -21,30 +21,41 @@ namespace Workshop.controller
 
         public void DeleteMember()
         {
-            List<model.Member> memberRegister = me.displayMembers();
+            List<model.Member> memberRegister = me.DisplayMembers();
             mv.DisplayMembers(memberRegister);
-            int choosenMemberId = v.AskForId("delete");
-            if ((me.CheckIfMemberExists(choosenMemberId)) == false)
+            try
             {
-                v.ViewErrorMessage("The member doesn't exist");
-                v.Continue();
-                return;
+                int choosenMemberId = v.AskForId("delete");
+                if ((me.CheckIfMemberExists(choosenMemberId)) == false)
+                {
+                    v.ViewErrorMessage("The member doesn't exist");
+                    v.Continue();
+                    return;
+                }
+                HandleMember(choosenMemberId);
+                string input = mv.DeleteMember();
+                if (input == "y")
+                {
+                    me.DeleteMember(choosenMemberId);
+                    v.ConfirmMessage("Member deleted.");
+                }
+                else if (input == "n")
+                {
+                    return;
+                }
+                else
+                {
+                    v.ViewErrorMessage("Type 'y' for yes or 'n' for no. Try again.");
+                }                
             }
-            HandleMember(choosenMemberId);
-            string input = mv.DeleteMember();
-            if (input == "y")
+            catch
             {
-                me.DeleteMember(choosenMemberId);
+                v.ViewErrorMessage("You must fill in member id. Try again.");
             }
-            else
-            {
-                return;
-            }
-            v.ConfirmMessage("Member deleted.");
             v.Continue();
         }
 
-        public void HandleMember(int choosenMemberId)
+        public void HandleMember(int choosenMemberId)           //??
         {
             mv.ViewSpecificMember(me.GetMember(choosenMemberId));
         }
@@ -83,50 +94,78 @@ namespace Workshop.controller
 
         public void EditMember()
         {
-            List<model.Member> memberRegister = me.displayMembers();
+            List<model.Member> memberRegister = me.DisplayMembers();
             mv.DisplayMembers(memberRegister);
-            int choosenMemberId = v.AskForId("edit");
-            if ((me.CheckIfMemberExists(choosenMemberId)) == false)
+            try
             {
-                v.ViewErrorMessage("The member doesn't exist");
-                v.Continue();
-                return;
+                int choosenMemberId = v.AskForId("edit");
+                if ((me.CheckIfMemberExists(choosenMemberId)) == false)
+                {
+                    v.ViewErrorMessage("The member doesn't exist");
+                    v.Continue();
+                    return;
+                }
+                HandleMember(choosenMemberId);
+                EditMemberName(choosenMemberId);
+                EditMemberPN(choosenMemberId);
             }
-            HandleMember(choosenMemberId);
-            EditMemberName(choosenMemberId);
-            EditMemberPN(choosenMemberId);
+            catch
+            {
+                v.ViewErrorMessage("You must fill in member id. Try again.");
+                v.Continue();
+            }
         }
 
         public void ListMembers()
         {
-            int listType = v.ChooseListType();
-            mv.ListMembers(me.displayMembers(), listType);
+            try
+            {
+                int listType = v.ChooseListType();
+                mv.ListMembers(me.DisplayMembers(), listType);
+            }
+            catch
+            {
+                v.ViewErrorMessage("You didn't choose list type. Try again.");
+            }
             v.Continue();
         }
         
         public void RegisterMember()
         {
-            string name = mv.RegisterName();
-            string personalIdentityNumber = mv.RegisterPersonalIdentityNumber();
-            
-            me.RegisterMember(name, personalIdentityNumber);
+            try
+            {
+                string name = mv.RegisterName();
+                string personalIdentityNumber = mv.RegisterPersonalIdentityNumber();
 
-            v.ConfirmMessage("Member registered"); 
+                me.RegisterMember(name, personalIdentityNumber);
+                v.ConfirmMessage("Member registered");
+            }
+            catch
+            {
+                v.ViewErrorMessage("Registration failed. Try again.");
+            }             
             v.Continue();
         }
 
         public void ViewMember()
         {
-            List<model.Member> memberRegister = me.displayMembers();
+            List<model.Member> memberRegister = me.DisplayMembers();
             mv.DisplayMembers(memberRegister);
-            int choosenMemberId = v.AskForId("view");
-            if ((me.CheckIfMemberExists(choosenMemberId)) == false)
+            try
             {
-                v.ViewErrorMessage("The member doesn't exist");
-                v.Continue();
-                return;
+                int choosenMemberId = v.AskForId("view");
+                if ((me.CheckIfMemberExists(choosenMemberId)) == false)
+                {
+                    v.ViewErrorMessage("The member doesn't exist");
+                    v.Continue();
+                    return;
+                }
+                HandleMember(choosenMemberId);
             }
-            HandleMember(choosenMemberId);
+            catch
+            {
+                v.ViewErrorMessage("You must fill in member id. Try again.");
+            }
             v.Continue();
         }      
     }

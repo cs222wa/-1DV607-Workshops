@@ -7,9 +7,7 @@ using System.Threading.Tasks;
 namespace Workshop.model
 {
     class MemberEditor : Editor
-    {
-
-        
+    {       
         
         public void DeleteMember(int choosenMemberId)
         {
@@ -50,7 +48,7 @@ namespace Workshop.model
             UpdateTextFile();
         }
 
-        public List<Member> displayMembers()
+        public List<Member> DisplayMembers()
         {
             return memberRegister;
         }

@@ -63,7 +63,7 @@ namespace Workshop.view
             return System.Console.ReadLine();
         }
 
-        public int AskForBoat(string prompt)                   //???
+        public int AskForBoat(string prompt)                  
         {
             System.Console.WriteLine("Choose what boat you want to " + prompt);
             return int.Parse(System.Console.ReadLine());

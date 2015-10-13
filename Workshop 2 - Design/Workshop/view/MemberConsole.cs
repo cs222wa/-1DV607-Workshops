@@ -21,7 +21,7 @@ namespace Workshop.view
         }
         public string EditPN()
         {
-            System.Console.WriteLine("Personal identity number: ");
+            System.Console.WriteLine("Personal identity number (yymmdd-xxxx): ");
             return System.Console.ReadLine();
         }
         public string IfEditName()
@@ -35,7 +35,7 @@ namespace Workshop.view
             System.Console.WriteLine("Change personal identity number? (y/n)");
             return System.Console.ReadLine();
         }
-
+        
         public void ListMembers(List<model.Member> memberRegister, int listType)
         {
             if (listType == 1)
@@ -69,7 +69,7 @@ namespace Workshop.view
                             System.Console.WriteLine("Boattype: " + boat.BoatType);
                             System.Console.WriteLine();
                         }
-                     }
+                    }
                     System.Console.WriteLine("------------------------");
                 }
             }
@@ -78,6 +78,7 @@ namespace Workshop.view
                 System.Console.WriteLine("You didn't choose list. Try again.");
             }
         }
+
         public string RegisterName()
         {
             System.Console.Clear();
@@ -85,18 +86,20 @@ namespace Workshop.view
             System.Console.WriteLine("Name: ");
             return System.Console.ReadLine();
         }
+
         public string RegisterPersonalIdentityNumber()
         {
-            System.Console.WriteLine("Personal identity number: ");
+            System.Console.WriteLine("Personal identity number (yymmdd-xxxx): ");
             return System.Console.ReadLine();
         }
         public void ViewSpecificMember(model.Member member)
         {
             System.Console.WriteLine("VIEW MEMBER");
             System.Console.WriteLine("-------------------------");
-            System.Console.WriteLine(member.Id);
+            System.Console.WriteLine("Member id:" + member.Id);
             System.Console.WriteLine(member.Name);
             System.Console.WriteLine(member.PersonalIdentityNumber);
+            System.Console.WriteLine("Number of boats: " + member.BoatRegister.Count);
             System.Console.WriteLine("-------------------------");
         }
 

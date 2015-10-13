@@ -9,12 +9,10 @@ namespace Workshop.controller
     class Controller
     {
         view.Console v; 
-        model.MemberEditor me;
-         
+                 
         public Controller()
         {
             v = new view.Console();
-            me = new model.MemberEditor(); 
         }
 
         public void ChooseFromMenu()
