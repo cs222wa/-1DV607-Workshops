@@ -1,86 +1,86 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
   <Class Name="Workshop.controller.BoatController">
-    <Position X="13.25" Y="5.5" Width="2" />
+    <Position X="6.75" Y="0.5" Width="2" />
     <TypeIdentifier>
       <HashCode>gAAAAAAAAgAAAAACAAEQAwAAAAAAAAAAABAAAAAAAAQ=</HashCode>
       <FileName>controller\BoatController.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Workshop.controller.Controller">
-    <Position X="6.5" Y="5.75" Width="2.5" />
+    <Position X="6.5" Y="4.5" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AAAADAAAACAAAAAAAAABAQAAAAAAAAACAhAAEAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAABAAAAAAAAA=</HashCode>
       <FileName>controller\Controller.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Workshop.controller.MemberController">
-    <Position X="10" Y="5.5" Width="2.25" />
+    <Position X="6.75" Y="7" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAQAAAAAAAACwAAAAAAAAQCAAgAAAAAAABAAAABAAII=</HashCode>
+      <HashCode>AAQAAAAAAAACwAAAAAAAAQCAAiAAAAAAABAAAABAAII=</HashCode>
       <FileName>controller\MemberController.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Workshop.model.Boat">
-    <Position X="3.5" Y="6.5" Width="1.75" />
+    <Position X="14.75" Y="0.75" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAABAEAAAABAAAAAAAAAAAQAAAAEAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAAAQAAAAEAAA=</HashCode>
       <FileName>model\Boat.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Workshop.model.BoatEditor">
-    <Position X="3.75" Y="3.75" Width="2.25" />
+    <Position X="11" Y="0.5" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAgAAAAACAAAQAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>gAAAAAAAAgABAAACAAAQAAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>model\BoatEditor.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Workshop.model.Member">
-    <Position X="0.5" Y="5.75" Width="2.5" />
+    <Position X="14.75" Y="5.75" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAAAAAAAQAAUAAAAFAAAAAAAAEAAAAhA=</HashCode>
       <FileName>model\Member.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Workshop.model.MemberEditor">
-    <Position X="0.5" Y="2.25" Width="2.5" />
+    <Position X="11" Y="8" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAACQAAAAAAAAACAAgAAAAAAAiAAAAAAAIA=</HashCode>
+      <HashCode>AAAAAAAAAAACAAAAAAAAAACAAgAAAAAAAiAAAAAAAKA=</HashCode>
       <FileName>model\MemberEditor.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Workshop.model.RegisterEditor">
-    <Position X="3.5" Y="0.5" Width="2.75" />
+  <Class Name="Workshop.model.Editor">
+    <Position X="10" Y="4" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAABAAAAAAACAAQABAAADAAAAAAAAAAA=</HashCode>
-      <FileName>model\RegisterEditor.cs</FileName>
+      <FileName>model\Editor.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Workshop.Program">
-    <Position X="7.25" Y="0.75" Width="1.5" />
+    <Position X="0.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Workshop.view.BoatConsole">
-    <Position X="13.25" Y="2" Width="2.25" />
+    <Position X="2.5" Y="0.5" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>hAAAAAAAAgAEEAACAAAAAAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <HashCode>hAAAAAAAAgAEEAACAAAAAAAAAAAAAAAAAEAAAAQAgAA=</HashCode>
       <FileName>view\BoatConsole.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Workshop.view.Console">
-    <Position X="7" Y="2.5" Width="2.25" />
+    <Position X="2.5" Y="4.25" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAECAAAAgAAAAAAAAAAEAAAAAAAAACAAAAAAAACAAA=</HashCode>
       <FileName>view\Console.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Workshop.view.MemberConsole">
-    <Position X="9.75" Y="1.25" Width="3" />
+    <Position X="2.25" Y="7.5" Width="3" />
     <TypeIdentifier>
-      <HashCode>ACAABAAAAAAAAAAAAAAAAACAgAAAkAAAAgwAAABAAAA=</HashCode>
+      <HashCode>ACAABAAAAAAAAAAAAAAAAACAgAAAkAAAAAwAAABAACA=</HashCode>
       <FileName>view\MemberConsole.cs</FileName>
     </TypeIdentifier>
   </Class>
