@@ -26,7 +26,7 @@
 * [Link to Application Code for workshop 2, grade 2](https://github.com/cs222wa/1DV607-Workshops/tree/master/Workshop%202%20-%20Design/Workshop)
 
 ### Instructions
-Application is to be run in Visual Studio.
+Application is to be run by .exe file or in Visual Studio
 
 ##Workshop 3 - Design Using Patterns
 * -
