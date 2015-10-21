@@ -6,7 +6,7 @@ using System.Text;
 namespace BlackJack.controller
 {
     class PlayGame
-    {
+    {        
         public bool Play(model.Game a_game, view.IView a_view)
         {
             a_view.DisplayWelcomeMessage();
@@ -19,22 +19,42 @@ namespace BlackJack.controller
                 a_view.DisplayGameOver(a_game.IsDealerWinner());
             }
 
-            int input = a_view.GetInput();
+            // -------------------------------
+            view.SimpleView.Event e;
+            e = a_view.GetEvent();
 
-            if (input == 'p')
+            if (e == view.SimpleView.Event.Play)
             {
                 a_game.NewGame();
             }
-            else if (input == 'h')
+            else if (e == view.SimpleView.Event.Hit)
             {
                 a_game.Hit();
             }
-            else if (input == 's')
+            else if (e == view.SimpleView.Event.Stand)
             {
                 a_game.Stand();
             }
 
-            return input != 'q';
+            return e != view.SimpleView.Event.Quit;
+
+            //int input = a_view.GetInput();
+            
+            //if (input == 'p')            
+            //{
+            //    a_game.NewGame();
+            //}
+            //else if (input == 'h')
+            //{
+            //    a_game.Hit();
+            //}
+            //else if (input == 's')
+            //{
+            //    a_game.Stand();
+            //}
+
+            //return input != 'q';
+            //-------------------------------------
         }
     }
 }

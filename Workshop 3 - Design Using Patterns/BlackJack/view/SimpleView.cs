@@ -7,18 +7,48 @@ namespace BlackJack.view
 {
     class SimpleView : IView
     {
-
+        //----------------------------
+        public enum Event 
+        { 
+            None,
+            Play,
+            Hit,
+            Stand,
+            Quit
+        }
+        
+        private const char m_playChar = 'p';
+        private const char m_hitChar = 'h';
+        private const char m_standChar = 's';
+        private const char m_quitchar = 'q';
+        //------------------------------
+                
         public void DisplayWelcomeMessage()
         {
             System.Console.Clear();
             System.Console.WriteLine("Hello Black Jack World");
-            System.Console.WriteLine("Type 'p' to Play, 'h' to Hit, 's' to Stand or 'q' to Quit\n");
+            System.Console.WriteLine("Type {0} to Play, {1} to Hit, {2} to Stand or {3} to Quit\n", m_playChar, m_hitChar, m_standChar, m_quitchar);  //--------
         }
 
         public int GetInput()
         {
             return System.Console.In.Read();
         }
+
+        public Event GetEvent()
+        {
+            switch (System.Console.In.Read())
+            {
+                case m_playChar:
+                    return Event.Play;
+                case m_hitChar:
+                    return Event.Hit;
+                case m_standChar:
+                    return Event.Stand;
+                default:
+                    return Event.None;
+            }
+        }       
 
         public void DisplayCard(model.Card a_card)
         {
