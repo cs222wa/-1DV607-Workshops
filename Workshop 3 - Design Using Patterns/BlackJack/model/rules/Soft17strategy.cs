@@ -12,18 +12,22 @@ namespace BlackJack.model.rules
         {
             var cards = a_dealer.GetHand();
             var score = a_dealer.CalcScore();
-            if (score == g_hitLimit)
+            if (score < g_hitLimit)
+            {
+                return true;
+            }
+            else if (score == g_hitLimit)
             {
                 foreach (var card in cards)
                 {
                     if (card.GetValue() == Card.Value.Ace && score - 11 == 6)
                     {
-                        score -= 10;                        
+                        score -= 10;
                     }
                     return score < g_hitLimit;
                 }
-            }
-            return false;
+            }            
+            return false;            
         }
     }
 }
