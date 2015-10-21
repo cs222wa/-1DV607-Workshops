@@ -62,7 +62,7 @@ namespace BlackJack.model
             {
                 return Value.Hidden;
             }
-            return m_value;
+            return m_value;            
         }
 
         public void Show(bool a_show)
