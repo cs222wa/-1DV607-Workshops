@@ -7,12 +7,34 @@ namespace BlackJack.view
 {
     class SwedishView : IView 
     {
+        //--------------------------
+        private const char m_playChar = 'p';
+        private const char m_hitChar = 'h';
+        private const char m_standChar = 's';
+        private const char m_quitchar = 'q';
+        public Event GetEvent()
+        {
+            switch (System.Console.In.Read())
+            {
+                case m_playChar:
+                    return Event.Play;
+                case m_hitChar:
+                    return Event.Hit;
+                case m_standChar:
+                    return Event.Stand;
+                case m_quitchar:
+                    return Event.Quit;
+                default:
+                    return Event.None;
+            }
+        }       
+        //------------------------
         public void DisplayWelcomeMessage()
         {
             System.Console.Clear();
             System.Console.WriteLine("Hej Black Jack Världen");
             System.Console.WriteLine("----------------------");
-            System.Console.WriteLine("Skriv 'p' för att Spela, 'h' för nytt kort, 's' för att stanna 'q' för att avsluta\n");
+            System.Console.WriteLine("Skriv {0} för att Spela, {1} för nytt kort, {2} för att stanna {3} för att avsluta\n", m_playChar, m_hitChar, m_standChar, m_quitchar);  //------
         }
         public int GetInput()
         {
