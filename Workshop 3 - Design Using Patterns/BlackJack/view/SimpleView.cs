@@ -18,7 +18,7 @@ namespace BlackJack.view
             System.Console.WriteLine("Hello Black Jack World");
             System.Console.WriteLine("Type {0} to Play, {1} to Hit, {2} to Stand or {3} to Quit\n", m_playChar, m_hitChar, m_standChar, m_quitchar);  //--------
         }
-        
+
         public Event GetEvent()
         {
             switch (System.Console.In.Read())
@@ -39,6 +39,11 @@ namespace BlackJack.view
         public void DisplayCard(model.Card a_card)
         {
             System.Console.WriteLine("{0} of {1}", a_card.GetValue(), a_card.GetColor());
+        }
+
+        public void PauseRedraw()
+        {
+            System.Console.WriteLine("Dealing Card...");
         }
 
         public void DisplayPlayerHand(IEnumerable<model.Card> a_hand, int a_score)

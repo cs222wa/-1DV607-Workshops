@@ -13,12 +13,16 @@ namespace BlackJack.model
         private rules.INewGameStrategy m_newGameRule;
         private rules.IHitStrategy m_hitRule;
         private rules.IWinStrategy m_winnerRule;
+
+        List<BlackJackObserver> m_observers;
         
         public Dealer(rules.RulesFactory a_rulesFactory)
         {
             m_newGameRule = a_rulesFactory.GetNewGameRule();
             m_hitRule = a_rulesFactory.GetHitRule();
             m_winnerRule = a_rulesFactory.GetWinnerRule();
+            m_observers = new List<BlackJackObserver>();
+
         }
 
         public bool NewGame(Player a_player)
@@ -31,6 +35,11 @@ namespace BlackJack.model
                 return m_newGameRule.NewGame(m_deck, this, a_player);   
             }
             return false;
+        }
+
+        public void AddSubscriber(BlackJackObserver a_subscriber)
+        {
+            m_observers.Add(a_subscriber);
         }
 
         public bool Hit(Player a_player)
@@ -54,22 +63,11 @@ namespace BlackJack.model
         {
             return m_winnerRule.IsDealerWinner(a_player, this, g_maxScore); 
         }
-        //public bool IsDealerWinner(Player a_player)
-        //{
-        //    if (a_player.CalcScore() > g_maxScore)
-        //    {
-        //        return true;
-        //    }
-        //    else if (CalcScore() > g_maxScore)
-        //    {
-        //        return false;
-        //    }
-        //    return CalcScore() >= a_player.CalcScore();
-        //}
+        
 
         public bool IsGameOver()
         {
-            if (m_deck != null && /*CalcScore() >= g_hitLimit*/ m_hitRule.DoHit(this) != true)
+            if (m_deck != null && m_hitRule.DoHit(this) != true)
             {
                 return true;
             }
@@ -86,11 +84,6 @@ namespace BlackJack.model
                 {
                     Card c = null;
                     getShowDealCard(a_player, c);
-                    /*
-                    Card c= m_deck.GetCard();  
-                    c.Show(true);
-                    DealCard(c);
-                     * */
                 }
                 return true;
             }
@@ -106,6 +99,10 @@ namespace BlackJack.model
             c = m_deck.GetCard();
             c.Show(true);
             a_player.DealCard(c);
+            foreach (BlackJackObserver o in m_observers)
+            {
+                o.CardDealt();
+            }
             
         }
     }
