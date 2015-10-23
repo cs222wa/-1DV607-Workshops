@@ -43,8 +43,8 @@ namespace BlackJack.view
 
         public void PauseRedraw()
         {
-            System.Console.WriteLine("Dealing Card...");
-            System.Threading.Thread.Sleep(2000);
+            //System.Console.WriteLine("Dealing Card...");
+            System.Threading.Thread.Sleep(1000);
 
         }
 
