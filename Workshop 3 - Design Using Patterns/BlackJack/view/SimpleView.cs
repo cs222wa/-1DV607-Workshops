@@ -44,7 +44,7 @@ namespace BlackJack.view
         public void PauseRedraw()
         {
             //System.Console.WriteLine("Dealing Card...");
-            System.Threading.Thread.Sleep(1000);
+            System.Threading.Thread.Sleep(500);
 
         }
 

@@ -59,7 +59,7 @@ namespace BlackJack.view
         public void PauseRedraw()
         {
             //System.Console.WriteLine("Dealing Card...");
-            System.Threading.Thread.Sleep(1000);
+            System.Threading.Thread.Sleep(500);
         }
 
         public void DisplayPlayerHand(IEnumerable<model.Card> a_hand, int a_score)

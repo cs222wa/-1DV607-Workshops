@@ -75,7 +75,7 @@ namespace BlackJack.model
                 ShowHand();
                 while (m_hitRule.DoHit(this)) 
                 {
-                    getShowDealCard(a_player, true);
+                   getShowDealCard(a_player, true);
                 }
                 return true;
             }

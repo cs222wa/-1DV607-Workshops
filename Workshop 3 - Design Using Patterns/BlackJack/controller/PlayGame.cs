@@ -10,20 +10,22 @@ namespace BlackJack.controller
         view.IView a_view;
         model.Game the_game;
 
-        public PlayGame(view.IView m_view)
+        public PlayGame(view.IView m_view, model.Game a_game)
         {
             a_view = m_view;
+            a_game.AddSubscriber(this);
         }
 
         public bool Play(model.Game a_game)
         {
             the_game = a_game;
-            a_game.AddSubscriber(this);
-
-            a_view.DisplayWelcomeMessage();
             
-            a_view.DisplayDealerHand(a_game.GetDealerHand(), a_game.GetDealerScore());
-            a_view.DisplayPlayerHand(a_game.GetPlayerHand(), a_game.GetPlayerScore());
+
+            CardDealt();
+            //a_view.DisplayWelcomeMessage();
+            
+            //a_view.DisplayDealerHand(a_game.GetDealerHand(), a_game.GetDealerScore());
+            //a_view.DisplayPlayerHand(a_game.GetPlayerHand(), a_game.GetPlayerScore());
 
             if (a_game.IsGameOver())
             {
