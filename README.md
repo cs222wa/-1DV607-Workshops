@@ -34,6 +34,7 @@ Application is to be run by .exe file or in Visual Studio
 * Carolina Skov Pedersen
 * Anna Aldenmark
 
+###Images and Diagrams
 * [Image on UML Class Diagram with Dependencies for workshop 3, grade 2](https://github.com/cs222wa/1DV607-Workshops/blob/master/Workshop%203%20-%20Design%20Using%20Patterns/Class%20diagram.png)
 
 ###Code and Exe-file
