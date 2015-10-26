@@ -30,11 +30,11 @@ Application is to be run by .exe file or in Visual Studio
 
 ##Workshop 3 - Design Using Patterns
 
+## Contributors for workshop 3
+* Carolina Skov Pedersen
+* Anna Aldenmark
+
 * [Image on UML Class Diagram with Dependencies for workshop 3, grade 2](https://github.com/cs222wa/1DV607-Workshops/blob/master/Workshop%203%20-%20Design%20Using%20Patterns/Class%20diagram.png)
 
 ###Code and Exe-file
 * [Link to downloadable Application Code for workshop 3, grade 2](https://github.com/cs222wa/1DV607-Workshops/archive/3.0.zip)
-
-## Contributors for workshop 3
-* Carolina Skov Pedersen
-* Anna Aldenmark
