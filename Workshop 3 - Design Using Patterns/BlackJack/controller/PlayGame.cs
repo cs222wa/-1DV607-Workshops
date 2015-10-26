@@ -8,7 +8,7 @@ namespace BlackJack.controller
     class PlayGame : model.BlackJackObserver
     {        
         view.IView a_view;
-        model.Game the_game;
+        model.Game m_game;
 
         public PlayGame(view.IView m_view, model.Game a_game)
         {
@@ -18,7 +18,7 @@ namespace BlackJack.controller
 
         public bool Play(model.Game a_game)
         {
-            the_game = a_game;
+            m_game = a_game;
             
 
             CardDealt();
@@ -54,8 +54,8 @@ namespace BlackJack.controller
         public void CardDealt()
         {
             a_view.DisplayWelcomeMessage();
-            a_view.DisplayDealerHand(the_game.GetDealerHand(), the_game.GetDealerScore());
-            a_view.DisplayPlayerHand(the_game.GetPlayerHand(), the_game.GetPlayerScore());
+            a_view.DisplayDealerHand(m_game.GetDealerHand(), m_game.GetDealerScore());
+            a_view.DisplayPlayerHand(m_game.GetPlayerHand(), m_game.GetPlayerScore());
             a_view.PauseRedraw();
         }
     }
